@@ -36,7 +36,7 @@ class DependencyUploadController extends UploadController
         if ($save->isFinished()) {
             // save the file and return any response you need
            // savetodb($save->getClientOriginalName());
-           return $this->saveFileToS3($save->getFile());
+           return $this->saveFile($save->getFile());
         }
 
         // we are in chunk mode, lets send the current progress
