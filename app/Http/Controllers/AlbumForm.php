@@ -15,11 +15,14 @@ class AlbumForm extends Controller
     public function submitform(Request $request){
 
        $albumname = [];
-      $albumname['name'] =  $request->get('albumname');
-      $albumname['edition']= $request->get('albumedition');
+       $albumname['name'] =  $request->get('albumname');
+       $albumname['edition']= $request->get('albumedition');
+       $albumname['photographer'] =  $request->get('albumphoto');
+       $albumname['category'] =  $request->get('cat');
 
       $albumtable = new Form;
       $albumtable->name = $albumname['name'];
+      $albumtable->category = $albumname['category'];
       $albumtable->edition = $albumname["edition"];
       $albumtable->photographer = $request->get('albumphoto');
         $albumtable->description = "nothihn";

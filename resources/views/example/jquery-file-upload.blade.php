@@ -10,6 +10,7 @@
 
 @section('content')
     <h2>Example</h2>
+    
     <div class="text-center">
         <input id="fileupload" type="file" name="file" data-url="{{ url('upload') }}" style="display: inline;" multiple>
         <ul id="file-upload-list" class="list-unstyled">

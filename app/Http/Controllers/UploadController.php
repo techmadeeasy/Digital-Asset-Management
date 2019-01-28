@@ -10,7 +10,7 @@ use Pion\Laravel\ChunkUpload\Handler\HandlerFactory;
 use Pion\Laravel\ChunkUpload\Receiver\FileReceiver;
 use App\Image;
 
-ini_set('max_execution_time', 300); //300 seconds = 5 minutes
+ini_set('max_execution_time', 600); //300 seconds = 5 minutes
 
 class UploadController extends Controller
 {
@@ -69,7 +69,7 @@ class UploadController extends Controller
 
         $disk = Storage::disk('s3');
         // It's better to use streaming Streaming (laravel 5.4+)
-        $disk->putFileAs('uploads', $file, $fileName);
+        $disk->putFileAs("uploads/" . date('Y-m-d'), $file, $fileName);
 
         // for older laravel
        //$disk->put($fileName, file_get_contents($file), 'public');

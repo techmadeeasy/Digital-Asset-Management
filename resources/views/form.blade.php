@@ -24,7 +24,7 @@
    </div> 
  @endif
 
-    <h3 class="jumbotron">Laravel Multiple File Upload</h3>
+    <h3 class="jumbotron">Create New Article/Album</h3>
 <form method="post" action="{{url('submit')}}" enctype="multipart/form-data">
   {{csrf_field()}}
 
@@ -32,12 +32,20 @@
           <label for="files">Album</label><input type="text" name="albumname" class="form-control" multiple="multiple"/>
         </div>
         <div class="input-group control-group increment" >
+          <label for="files">Category</label> <select class="form-control" name="cat" id="">
+              <option value="food and drink">Food and Drink</option>    
+              <option value="Houses">House</option>  
+              <option value="Lifestyle">Lifestyle</option>        
+          </select>
+        </div>
+        <div class="input-group control-group increment" >
           <label for="files">Edition</label><input type="text" name="albumedition" class="form-control" multiple="multiple"/>
         </div>
         <div class="input-group control-group increment" >
           <label for="files">Photographer</label><input type="text" name="albumphoto" class="form-control" multiple="multiple"/>
         </div>
-        
+
+       
 
         <button type="submit" class="btn btn-primary" style="margin-top:10px">Submit</button>
 

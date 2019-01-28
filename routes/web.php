@@ -11,11 +11,11 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
-Route::get('/jquery-file-upload', function () {
+Route::get('/', function () {
     return view('example/jquery-file-upload', [
         'code' => file_get_contents(resource_path('assets/js/jquery-file-upload.js'))
     ]);

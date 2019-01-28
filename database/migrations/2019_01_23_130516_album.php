@@ -17,10 +17,15 @@ class Album extends Migration
 
             $table->increments('id')->unique();
             $table->string('name')->unique();
-            $table->text('description');
+            $table->text('description')->nullable();
+            $table->string('category');
+            $table->string('featured')->nullable();
             $table->string('edition');
-            $table->string('photographer');
-            $table->string('writer');
+            $table->string('photographer')->nullable();
+            $table->string('writer')->nullable();
+            $table->string('location')->nullable();
+            $table->string('homeowner')->nullable();
+            $table->longText('selling_terms')->nullable();
             $table->timestamps();
 
         });
