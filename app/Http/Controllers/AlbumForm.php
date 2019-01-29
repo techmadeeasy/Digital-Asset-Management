@@ -41,7 +41,7 @@ $filepath = date('Y-m-d') . "/" . $fileName;
    Session::put("cat", $request->get('cat'));
     Session::put("edition", $request->get('albumedition'));
 
-        return redirect("/upload_image");
+        return redirect()->route("upload_image");
     }
 
  
