@@ -1,6 +1,6 @@
-@extends('layout')
+@extends('layouts/layout')
 
-@section('page-title', 'jQuery File Upload')
+@section('page-title', 'Upload')
 
 @section('body-end')
     <script src="{{ asset('vendor/blueimp-file-upload/js/vendor/jquery.ui.widget.js') }}"></script>
@@ -10,7 +10,7 @@
 
 @section('content')
     <h2>Example</h2>
-    
+  {{Session::get('album')}};
     <div class="text-center">
         <input id="fileupload" type="file" name="file" data-url="{{ url('upload') }}" style="display: inline;" multiple>
         <ul id="file-upload-list" class="list-unstyled">

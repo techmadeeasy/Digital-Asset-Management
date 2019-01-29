@@ -15,24 +15,18 @@
 //     return view('welcome');
 // });
 
-Route::get('/', function () {
-    return view('example/jquery-file-upload', [
+Route::get('/upload_image', function () {
+    return view('admin/jquery-file-upload', [
         'code' => file_get_contents(resource_path('assets/js/jquery-file-upload.js'))
     ]);
 });
-Route::get('/dropzone', function () {
-    return view('example/dropzone', [
-        'code' => file_get_contents(resource_path('assets/js/dropzone.js'))
-    ]);
-});
-Route::get('/resumable', function () {
-    return view('example/resumable', [
-        'code' => file_get_contents(resource_path('assets/js/resumable.js'))
-    ]);
+Route::get("create_edition", function(){
+    return view('admin/edition');
 });
 
 Route::post('upload', 'DependencyUploadController@uploadFile');
 Route::post('upload-advanced', 'UploadController@saveFileToS3');
 Route::get('/album', 'AlbumForm@formview');
 Route::post('/submit','AlbumForm@submitform');
+Route::post('/subedition', 'EditionForm@editionform');
 

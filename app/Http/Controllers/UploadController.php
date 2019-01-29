@@ -8,6 +8,7 @@ use Pion\Laravel\ChunkUpload\Exceptions\UploadMissingFileException;
 use Pion\Laravel\ChunkUpload\Handler\AbstractHandler;
 use Pion\Laravel\ChunkUpload\Handler\HandlerFactory;
 use Pion\Laravel\ChunkUpload\Receiver\FileReceiver;
+use Illuminate\Support\Facades\Session;
 use App\Image;
 
 ini_set('max_execution_time', 600); //300 seconds = 5 minutes
@@ -74,6 +75,8 @@ class UploadController extends Controller
         // for older laravel
        //$disk->put($fileName, file_get_contents($file), 'public');
         $mime = str_replace('/', '-', $file->getMimeType());
+        //storing the path in the database 
+
 
         // We need to delete the file when uploaded to s3
         unlink($file->getPathname());
@@ -98,7 +101,7 @@ class UploadController extends Controller
         // Group files by mime type
         $mime = str_replace('/', '-', $file->getMimeType());
         // Group files by the date (week
-        $dateFolder = date("Y-m-W");
+        $dateFolder = date("Y-m-d");
 
         // Build the file path
         $filePath = "upload/{$mime}/{$dateFolder}/";
@@ -127,9 +130,18 @@ class UploadController extends Controller
 
         // Add timestamp hash to name of the file
         $filename .= "_" . md5(time()) . "." . $extension;
+
+        //store values for the images in database
+
         $imagetb = new Image;
         $imagetb->filename= $filename;
+        $imagetb->category = Session::pull("cat");
+        $imagetb->album = Session::pull("album");
+        $imagetb->edition = Session::pull("edition");
         $imagetb->save();
+
+        // and then unset the session specific stored data
+
         return $filename;
     }
 

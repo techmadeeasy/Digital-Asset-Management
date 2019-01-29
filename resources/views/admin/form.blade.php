@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Laravel Multiple File Upload Example</title>
+  <title>create album</title>
   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
 </head>
@@ -44,6 +44,10 @@
         <div class="input-group control-group increment" >
           <label for="files">Photographer</label><input type="text" name="albumphoto" class="form-control" multiple="multiple"/>
         </div>
+        <div class="input-group control-group increment" >
+          <label for="files">Image cover</label><input type="file" name="image" class="form-control"/>
+        </div>
+       
 
        
 

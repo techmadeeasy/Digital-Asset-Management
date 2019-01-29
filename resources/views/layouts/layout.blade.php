@@ -15,14 +15,9 @@
 <div class="flex-center position-ref full-height">
     <div class="content">
         <div class="title m-b-md">
-            @yield('page-title', 'Laravel chunked upload')
+            @yield('page-title')
         </div>
         {{ csrf_field() }}
-        <div class="links">
-            <a href="https://github.com/pionl/laravel-chunk-upload">Github docs</a>
-            <a href="{{ url('jquery-file-upload') }}">jQuery-File-Upload example</a>
-            <a href="https://github.com/laravel/laravel">Laravel framework</a>
-        </div>
         @yield('content')
      
     </div>
