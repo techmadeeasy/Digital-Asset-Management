@@ -28,7 +28,7 @@ if($request->hasFile('image')){
 $filepath = date('Y-m-d') . "/" . $fileName;
       $albumtable = new Form;
       $albumtable->name = $request->get('albumname');
-      $albumtable->category = $request->get('cat');
+     // $albumtable->category = $request->get('cat');
       $albumtable->edition = $request->get('albumedition');
       $albumtable->photographer = $request->get('albumphoto');
         $albumtable->description = "nothihn";
