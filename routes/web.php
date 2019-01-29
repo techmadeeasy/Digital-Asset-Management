@@ -30,3 +30,7 @@ Route::get('/album', 'AlbumForm@formview');
 Route::post('/submit','AlbumForm@submitform');
 Route::post('/subedition', 'EditionForm@editionform');
 
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

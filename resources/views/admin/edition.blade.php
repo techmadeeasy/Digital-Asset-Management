@@ -24,6 +24,13 @@
    </div> 
  @endif
 
+@guest 
+<script type="text/javascript">
+    window.location = "{{ url('/login') }}";//here double curly bracket
+</script>
+
+@else
+
     <h3 class="jumbotron">Create New Edition</h3>
 <form method="post" action="{{url('subedition')}}" enctype="multipart/form-data">
   {{csrf_field()}}
@@ -61,7 +68,7 @@
   </form>        
   </div>
  
-
+@endguest
   <script type="text/javascript">
 
     $(document).ready(function() {

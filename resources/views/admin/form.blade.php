@@ -23,6 +23,11 @@
       {{ session('success') }}
    </div> 
  @endif
+@guest
+<script type="text/javascript">
+    window.location = "{{ url('/login') }}";//here double curly bracket
+</script>
+@else
 
     <h3 class="jumbotron">Create New Article/Album</h3>
 <form method="post" action="{{url('submit')}}" enctype="multipart/form-data">
@@ -55,7 +60,7 @@
 
   </form>        
   </div>
- 
+ @endguest
 
   <script type="text/javascript">
 

@@ -1,5 +1,5 @@
 @extends('layouts/layout')
-
+@extends('layouts/app')
 @section('page-title', 'Upload')
 
 @section('body-end')
