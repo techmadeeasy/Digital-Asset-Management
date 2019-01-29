@@ -30,6 +30,6 @@ class EditionForm extends Controller
         $editiontb->year = $request->get("year");
         $editiontb->thumbnail = $filepath;
         $editiontb->save();
-        return redirect('album');
+        return redirect('/album');
     }
 }
