@@ -1,74 +1,98 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <title>Edition</title>
-  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-</head>
-<body>
+@extends('layouts/layout')
 
-  <div class="container">
-  @if (count($errors) > 0)
-      <div class="alert alert-danger">
-        <strong>Whoops!</strong> There were some problems with your input.<br><br>
-        <ul>
-          @foreach ($errors->all() as $error)
-              <li>{{ $error }}</li>
-          @endforeach
-        </ul>
-      </div>
-      @endif
-      @if(session('success'))
-   <div class="alert alert-success">
-      {{ session('success') }}
-   </div> 
- @endif
-
-@guest 
-<script type="text/javascript">
-    window.location = "{{ url('/login') }}";//here double curly bracket
-</script>
-
-@else
-
-    <h3 class="jumbotron">Create New Edition</h3>
-<form method="post" action="{{url('subedition')}}" enctype="multipart/form-data">
+ 
+@section('content')
+<div class="content">
+                    <div class="block">
+                        <div class="block-header block-header-default">
+                            <h3 class="block-title">Add New Magazine Issue</h3>
+                    
+                            <div class="block-options">
+                                <button type="button" class="btn-block-option" data-toggle="block-option" data-action="state_toggle" data-action-mode="demo">
+                                    <i class="si si-refresh"></i>
+                                </button>
+                                <button type="button" class="btn-block-option" data-toggle="block-option" data-action="content_toggle"></button>
+                            </div>
+                        </div>
+                        <div class="block-content">
+<form method="post" class="form-group" action="{{url('subedition')}}" enctype="multipart/form-data">
   {{csrf_field()}}
+  <div class="row">
+        <div class="col-md-7">
+              <div class="form-group row">    
+                  <div class="col-12">
+                      <label>Magazine Issue</label> 
+                          <input type="text"  class="form-control" name="issue" >
+                  </div>
+            </div> 
+        </div>
 
-        <div class="input-group control-group increment" >
-          <label for="files">Magazine Issue</label><input type="text" name="issue" class="form-control" multiple="multiple"/>
-        </div>
-        <div class="input-group control-group increment" >
-          <label for="files">Month</label> <select class="form-control" name="month" id="">
-              <option value="1">January</option>    
-              <option value="2">February</option> 
-              <option value="3">March</option> 
-          </select> 
+        <div class="col-md-5">
+              <div class="form-group row">
+                  <div class="col-12">
+                      <label>Magazine</label><select class="custom-select" name="mag"> 
+                          <option value="Cosmopolitan">Cosmopolitan</option>
+                          <option value="House and Leisure">House and Leisure</option>
+                          <option value="Good House Keeping">Good House Keeping</option>
+                            </select>
+                    </div>
+                </div> 
           </div>
-        <div class="input-group control-group increment" >
-          <label for="files">Year of Publication</label> <select class="form-control" name="year" id="">
-              <option value="2017">2017</option>    
-              <option value="2018">2018</option> 
-              <option value="2019">2019</option> 
-          </select>
         </div>
-        <div class="input-group control-group increment" >
-          <label for="files">Magazine</label> <select class="form-control" name="mag" id="">
-              <option value="House and Leisure">House and Leisure</option>    
-              <option value="cosmopolitan">Cosmopolitan</option>  
-          </select>
+          <!-- <div class="row"> -->
+        <div class="row">
+            <div class="col-md-7">
+                <div class="form-group row">
+                 <div class="col-12">
+                      <label>Selling Terms</label>
+                              <textarea class="form-control form-control-lg" id="mega-bio" name="terms" rows="22"></textarea>
+                  </div>
+                  </div>
+              </div>
+              <div class="col-md-5">
+                <div  class="form-group row">    
+                  <div class="col-12">
+                  <label for="files">Month</label> <select class="form-control" name="month">
+                          <option value="1">January</option>    
+                          <option value="2">February</option> 
+                          <option value="3">March</option>
+                          <option value="4">April</option> 
+                          <option value="5">May</option> 
+                          <option value="6">June</option> 
+                          <option value="7">July</option> 
+                          <option value="8">August</option>  
+                          <option value="9">September</option> 
+                          <option value="10">October</option> 
+                          <option value="11">November</option> 
+                          <option value="12">December</option> 
+                      </select>          
+                  </div>
+                </div>
+                <div  class="form-group row">    
+                  <div class="col-12">
+                    <label for="year">Year of Publication</label> <select class="form-control" name="year">
+                          <option value="2017">2017</option>    
+                          <option value="2018">2018</option> 
+                          <option value="2019">2019</option> 
+                    </select>
+                    </div>
+                  </div>
+                  <div  class="form-group row">    
+                  <div class="col-12">
+          <label for="file">Image cover</label><input type="file" name="image" class="form-control"/>
         </div>
-        <div class="input-group control-group increment" >
-          <label for="files">Image cover</label><input type="file" name="image" class="form-control"/>
         </div>
        
 
         <button type="submit" class="btn btn-primary" style="margin-top:10px">Submit</button>
-
-  </form>        
+</div>
+  </form> 
   </div>
- 
-@endguest
+                    <!-- END Mega Form -->
+                <!-- END Page Content -->
+               
+  </div>
+@endsection
   <script type="text/javascript">
 
     $(document).ready(function() {
