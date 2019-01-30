@@ -31,7 +31,7 @@ $filepath = date('Y-m-d') . "/" . $fileName;
     // $albumtable->category = "nothin";
       $albumtable->edition = $request->get('albumedition');
       $albumtable->photographer = $request->get('albumphoto');
-        //$albumtable->description = "nothihn";
+        $albumtable->description = "nothihn";
         $albumtable->writer = "thewroro";
         $albumtable->thumbnail = $filepath;
         $albumtable->save();
