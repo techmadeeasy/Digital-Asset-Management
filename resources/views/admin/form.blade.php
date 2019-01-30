@@ -36,13 +36,13 @@
         <div class="input-group control-group increment" >
           <label for="files">Album</label><input type="text" name="albumname" class="form-control" multiple="multiple"/>
         </div>
-        <div class="input-group control-group increment" >
+        <!-- <div class="input-group control-group increment" >
           <label for="files">Category</label> <select class="form-control" name="cat" id="">
               <option value="food and drink">Food and Drink</option>    
               <option value="Houses">House</option>  
               <option value="Lifestyle">Lifestyle</option>        
           </select>
-        </div>
+        </div> -->
         <div class="input-group control-group increment" >
           <label for="files">Edition</label><input type="text" name="albumedition" class="form-control" multiple="multiple"/>
         </div>

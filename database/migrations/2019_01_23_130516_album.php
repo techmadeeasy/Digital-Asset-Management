@@ -18,7 +18,7 @@ class Album extends Migration
             $table->increments('id')->unique();
             $table->string('name')->unique();
             $table->text('description')->nullable();
-            $table->string('category');
+            $table->string('category')->nullable();
             $table->string('featured')->nullable();
             $table->string('edition')->nullable();
             $table->string('photographer')->nullable();
