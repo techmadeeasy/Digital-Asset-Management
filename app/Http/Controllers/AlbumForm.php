@@ -28,7 +28,7 @@ if($request->hasFile('image')){
 $filepath = date('Y-m-d') . "/" . $fileName;
       $albumtable = new Form;
       $albumtable->name = $request->get('albumname');
-      $albumtable->category = $request->get('cat');
+      $albumtable->category = "nothin";
       $albumtable->edition = $request->get('albumedition');
       $albumtable->photographer = $request->get('albumphoto');
         $albumtable->description = "nothihn";
@@ -41,7 +41,7 @@ $filepath = date('Y-m-d') . "/" . $fileName;
    Session::put("cat", $request->get('cat'));
     Session::put("edition", $request->get('albumedition'));
 
-        return redirect()->route("upload_image");
+        return redirect("/upload_image");
     }
 
  

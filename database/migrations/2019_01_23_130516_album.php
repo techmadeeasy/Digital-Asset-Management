@@ -20,7 +20,7 @@ class Album extends Migration
             $table->text('description')->nullable();
             $table->string('category');
             $table->string('featured')->nullable();
-            $table->string('edition');
+            $table->string('edition')->nullable();
             $table->string('photographer')->nullable();
             $table->string('writer')->nullable();
             $table->string('location')->nullable();
