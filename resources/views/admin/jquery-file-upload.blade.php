@@ -8,7 +8,7 @@
     <script src="{{ asset('vendor/blueimp-file-upload/js/jquery.fileupload.js') }}"></script>
 @endsection
 
-@section('content')
+@section('loader')
     <h2>Example</h2>
   {{Session::get('album')}};
     <div class="text-center">

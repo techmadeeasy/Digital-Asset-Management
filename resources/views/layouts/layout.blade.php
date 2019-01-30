@@ -18,7 +18,7 @@
             @yield('page-title')
         </div>
         {{ csrf_field() }}
-        @yield('content')
+        @yield('loader')
      
     </div>
     <link rel="stylesheet"
