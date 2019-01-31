@@ -11,11 +11,11 @@
 
 @section('content')
   
-    <div class="text-center">
+    <div class="text-center" >
     <div class="image">
-        <img src="{{ asset('assets/images/profile-logo.svg')}}" width=200 alt="">
+        <img style="margin-top:100px;" src="{{ asset('assets/images/profile-logo.svg')}}" width=200 alt="">
     </div>
-    <h4>Upload Your High Resolution Images For the {{Session::get('album')}} album</h4>
+    <h4 style="padding-top:20px">Upload Your High Resolution Images For the {{Session::get('album')}} album</h4>
     <div  class="form-group row">    
                   <div class="col-12">
           <label for="file">Select files</label> <input id="fileupload" type="file" class="" name="file" data-url="{{ url('upload') }}" style="display: inline;" multiple>
@@ -62,15 +62,14 @@
     <script src="{{ asset('js/app.js') }}"></script>
     <script>hljs.initHighlightingOnLoad();</script>
     <script>
-    function hide(){
-        document.getElementById("myProgress").style.display="none";
-    }
+
         var $ = window.$; // use the global jQuery instance
 var $uploadList = $("#file-upload-list");
 var $fileUpload = $('#fileupload');
 if ($uploadList.length > 0 && $fileUpload.length > 0) {
     var idSequence = 0;
     // A quick way setup - url is taken from the html tag
+   
     $fileUpload.fileupload({
         maxChunkSize: 100000,
         method: "POST",
@@ -83,7 +82,8 @@ if ($uploadList.length > 0 && $fileUpload.length > 0) {
         progressall: function (e, data) {
             var progress = parseInt(data.loaded / data.total * 100, 10);
             $("#" + data.theId).text('Uploading ' + progress + '%');
-            move(progress)
+            move(progress);
+           
         },
         add: function (e, data) {
             data._progress.theId = 'id_' + idSequence;
@@ -94,6 +94,7 @@ if ($uploadList.length > 0 && $fileUpload.length > 0) {
         done: function (e, data) {
             console.log(data, e);
             $uploadList.append($('<li></li>').text('Uploaded: ' + data.result.name));
+            document.getElementById(data.theId).style.display="none";
         }
     });
 
@@ -109,6 +110,12 @@ function move(progress) {
       width++; 
       elem.style.width = width + '%'; 
     }
+  }
+  
+
+  if (progress==100){
+      alert("Your Images have been uploaded!")
+      window.location="{{ route('edition')}}"
   }
 }
 }

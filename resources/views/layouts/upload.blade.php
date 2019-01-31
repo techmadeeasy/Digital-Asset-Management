@@ -24,20 +24,18 @@
     <link rel="apple-touch-icon" sizes="180x180" href="asset {{ asset('assets/media/favicons/apple-touch-icon-180x180.png') }}">
     <link rel="stylesheet" id="css-main" href="{{ asset('assets/css/media/codebase.min.css') }}">
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/alertify.js/0.5.0/alertify.core.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/alertify.js/0.5.0/alertify.default.min.css" />
  
 </head>
-<body onload="hide();">
+<body>
     <div id="app">
         <nav class="navbar navbar-default navbar-static-top">
             <div class="container">
                 <div class="navbar-header">
 
                     <!-- Collapsed Hamburger -->
-                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#app-navbar-collapse" aria-expanded="false">
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
+                    
 
                     <!-- Branding Image -->
                     
@@ -85,7 +83,9 @@
     </div>
 
     <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}"></script>
+    <!-- <script src="{{ asset('assets/js/app.js') }}"></script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/alertify.js/0.5.0/alertify.min.js"></script>
+    
     @yield('script')
 </body>
 </html>

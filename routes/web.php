@@ -22,7 +22,7 @@ Route::get('/upload_image', function () {
 });
 Route::get("create_edition", function(){
     return view('admin/edition');
-});
+})->name('edition');
 
 Route::post('upload', 'DependencyUploadController@uploadFile');
 Route::post('upload-advanced', 'UploadController@saveFileToS3');
