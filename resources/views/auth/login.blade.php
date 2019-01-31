@@ -39,16 +39,19 @@
                                             </div>
                                         </div>
                                     </div>
+                                    <div class="form-group">
                                     <div class="col-12">
                                             <div class="custom-control custom-checkbox">
                                                 <input type="checkbox" class="custom-control-input"  {{ old('remember') ? 'checked' : '' }} name="remember">
                                                 <label class="custom-control-label" for="login-remember-me">Remember Me</label>
                                             </div>
                                         </div>
+                                        </div>
                                         <div class="form-group">
-                                        <div class="col-md-8 col-md-offset-4">
+                                        
                                         <button type="submit" class="btn btn-sm btn-hero btn-alt-primary"><em class="si si-login mr-10"></em> Sign In </button>
-                                        <div class="mt-30">Get Inspired and Create.
+                                        <div>
+                                        <div class="mt-30">
                                             <a class="link-effect text-muted mr-10 mb-5 d-inline-block" href="{{ route('register') }}">
                                                 <i class="fa fa-plus mr-5"></i> Create Account
                                             </a>

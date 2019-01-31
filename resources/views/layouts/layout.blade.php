@@ -449,7 +449,7 @@
             <!-- END Footer -->
         </div>
         <!-- END Page Container -->
-
+      
         <!-- Codebase Core JS -->
         <script src="{{ asset('assets/js/core/jquery.min.js')}}"></script>
         <script src="{{ asset('assets/js/core/bootstrap.bundle.min.js')}}"></script>
@@ -459,12 +459,10 @@
         <script src="{{ asset('assets/js/core/jquery.countTo.min.js')}}"></script>
         <script src="{{ asset('assets/js/core/js.cookie.min.js')}}"></script>
         <script src="{{ asset('assets/js/codebase.js')}}"></script>
-
+       
         <!-- Page JS Plugins -->
-        <script src="{{ asset('assets/js/plugins/chartjs/Chart.bundle.min.js')}}"></script>
-
-        <!-- Page JS Code -->
-        <script src="{{ asset('assets/js/pages/be_pages_dashboard.js')}}"></script>
+      
+       
         @endguest
     </body>
 </html>

@@ -34,3 +34,9 @@ Route::post('/subedition', 'EditionForm@editionform');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/logout', function(){
+     //logout user
+     auth()->logout();
+     // redirect to homepage
+     return redirect('/login');
+});

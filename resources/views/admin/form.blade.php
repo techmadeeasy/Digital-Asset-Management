@@ -1,66 +1,85 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <title>create album</title>
-  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-</head>
-<body>
+@extends('layouts/layout')
 
-  <div class="container">
-  @if (count($errors) > 0)
-      <div class="alert alert-danger">
-        <strong>Whoops!</strong> There were some problems with your input.<br><br>
-        <ul>
-          @foreach ($errors->all() as $error)
-              <li>{{ $error }}</li>
-          @endforeach
-        </ul>
-      </div>
-      @endif
-      @if(session('success'))
-   <div class="alert alert-success">
-      {{ session('success') }}
-   </div> 
- @endif
-@guest
-<script type="text/javascript">
-    window.location = "{{ url('/login') }}";//here double curly bracket
-</script>
-@else
-
-    <h3 class="jumbotron">Create New Article/Album</h3>
-<form method="post" action="{{url('submit')}}" enctype="multipart/form-data">
-  {{csrf_field()}}
-
-        <div class="input-group control-group increment" >
-          <label for="files">Album</label><input type="text" name="albumname" class="form-control" multiple="multiple"/>
-        </div>
-        <div class="input-group control-group increment" >
-          <label for="files">Category</label> <select class="form-control" name="cat" id="">
-              <option value="food and drink">Food and Drink</option>    
-              <option value="Houses">House</option>  
-              <option value="Lifestyle">Lifestyle</option>        
+@section('content')
+<div class="content">
+                    <div class="block">
+                        <div class="block-header block-header-default">
+                            <h3 class="block-title">Add New Article</h3>
+                    
+                            <div class="block-options">
+                                <button type="button" class="btn-block-option" data-toggle="block-option" data-action="state_toggle" data-action-mode="demo">
+                                    <i class="si si-refresh"></i>
+                                </button>
+                                <button type="button" class="btn-block-option" data-toggle="block-option" data-action="content_toggle"></button>
+                            </div>
+                        </div>
+                        <div class="block-content">
+      <form method="post" action="{{url('submit')}}" class="form-group" enctype="multipart/form-data">
+              {{csrf_field()}}
+          <div class="row">
+              <div class="col-md-7">
+                <div class="form-group row">    
+                    <div class="col-12">
+                          <label for="files">Album Name</label><input type="text" name="albumname" class="form-control" multiple="multiple"/>
+                    </div>
+                </div> 
+              </div>
+              <div class="col-md-5">
+                <div class="form-group row">
+                    <div class="col-12">
+                        <label for="files">Category</label> <select class="form-control" name="cat" id="">
+                              <option value="food and drink">Food and Drink</option>    
+                              <option value="Houses">House</option>  
+                              <option value="Lifestyle">Lifestyle</option>        
+                              </select>
+                      </div>
+	                    </div>
+                  </div>
+            </div>
+            <div class="row">
+              <div class="col-md-7">
+                  <div class="form-group row">
+                        <div class="col-12">
+                        <label>Description</label>
+                    <textarea class="form-control form-control-lg" id="mega-bio" name="overview" rows="22"></textarea>
+                        </div>
+                  </div>
+              </div>      
+              <div class="col-md-5">
+                  <div id="" class="form-group row">    
+                          <div class="col-12">
+          <label for="files">Magazine Issue</label><select class="form-control" name="albumedition" class="form-control">
+          @foreach ($list as $l)
+ <option value="{{$l->name}}">{{$l->name}} </option>  
+       @endforeach
           </select>
-        </div>
-        <div class="input-group control-group increment" >
-          <label for="files">Edition</label><input type="text" name="albumedition" class="form-control" multiple="multiple"/>
-        </div>
-        <div class="input-group control-group increment" >
+              </div>
+            </div>
+            <div class="form-group row">    
+                    <div class="col-12">
           <label for="files">Photographer</label><input type="text" name="albumphoto" class="form-control" multiple="multiple"/>
         </div>
-        <div class="input-group control-group increment" >
+        </div>
+        <div class="form-group row">    
+              <div class="col-12">
           <label for="files">Image cover</label><input type="file" name="image" class="form-control"/>
         </div>
-       
-
-       
-
+        </div>
+              <div class="col-12">
         <button type="submit" class="btn btn-primary" style="margin-top:10px">Submit</button>
-
-  </form>        
+        <div class="col-12">
+    </div>
+                                            </div>
+   
+  
+ </div>
+  </form> 
   </div>
- @endguest
+      <!-- END Mega Form -->
+                <!-- END Page Content -->
+        </div>     
+  </div>
+@endsection
 
   <script type="text/javascript">
 
