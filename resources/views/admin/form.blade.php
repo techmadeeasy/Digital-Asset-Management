@@ -57,7 +57,13 @@
             </div>
             <div class="form-group row">    
                     <div class="col-12">
-          <label for="files">Photographer</label><input type="text" name="albumphoto" class="form-control" multiple="multiple"/>
+          <label for="files">Photographer</label><select class="form-control" name="albumphoto" class="form-control">
+              <option value="none"></option>
+          @foreach ($listcon as $con)
+ <option value="{{$con->name}}">{{$con->name}} </option>  
+ 
+       @endforeach
+          </select>
         </div>
         </div>
         <div class="form-group row">    

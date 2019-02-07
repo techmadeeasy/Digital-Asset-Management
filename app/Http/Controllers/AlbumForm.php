@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Session;
 use Illuminate\Http\Request;
 use App\Form;
 use App\Edition;
+use App\Contributors;
 use Storage;
 
 class AlbumForm extends Controller
@@ -14,7 +15,9 @@ class AlbumForm extends Controller
 
         $editiontb = new Edition;
         $list = $editiontb->all();
-        return view('admin.form', compact("list"));
+        $contributors = new Contributors;
+        $listcon = $contributors->all();
+        return view('admin.form', compact("list", "listcon"));
     }
     
     
@@ -38,7 +41,7 @@ class AlbumForm extends Controller
                     $albumtable->edition = $request->get('albumedition');
                     $albumtable->photographer = $request->get('albumphoto');
                         $albumtable->description = $request->get('overview');
-                        $albumtable->writer = "thewroro";
+                        //$albumtable->writer = "thewroro";
                         $albumtable->thumbnail = $filepath;
                         $albumtable->save();
                     
