@@ -61,7 +61,6 @@
               <option value="none"></option>
           @foreach ($listcon as $con)
  <option value="{{$con->name}}">{{$con->name}} </option>  
- 
        @endforeach
           </select>
         </div>
