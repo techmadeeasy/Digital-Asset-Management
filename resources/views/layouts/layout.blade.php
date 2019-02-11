@@ -242,18 +242,20 @@
                                     <a href="/uploader/dashboard.php"><i class="fa fa-tachometer"></i><span class="sidebar-mini-hide"></span></a>
                                 </li>
                                <li>
-                                    <a class="nav-submenu" data-toggle="nav-submenu" href="/uploader/loader.php"><i class="fa fa-plus-square"></i><span class="sidebar-mini-hide">Add New</span></a>
+                                    <a class="nav-submenu" data-toggle="nav-submenu" href="{{route('edition')}}"><i class="fa fa-plus-square"></i><span class="sidebar-mini-hide">Add New</span></a>
+
                                       <ul>
                                         <li>
-                                            <a class="nav-submenu" href="loader.php"><span class="sidebar-mini-hide">Magazine Issue</span></a>
+                                            <a class="nav-submenu" href="{{route('edition')}}"><span class="sidebar-mini-hide">Magazine Issue</span></a>
+
                                         </li>
                                         <li>
-                                            <a class="nav-submenu"  href="album_loader.php"><span class="sidebar-mini-hide">Article or Album</span></a>
+                                            <a class="nav-submenu"  href="{{ route('album') }}"><span class="sidebar-mini-hide">Article or Album</span></a>
                                         </li>
                                   </ul>
                                 </li>
 								 <li>
-                                    <a href="report.php"><i class="fa fa-download"></i><span class="sidebar-mini-hide">View Downloads</span></a>
+                                    <a href="#"><i class="fa fa-download"></i><span class="sidebar-mini-hide">View Downloads</span></a>
                                   
                                 </li>
                             </ul>

@@ -26,7 +26,7 @@ Route::get("create_edition", function(){
 
 Route::post('upload', 'DependencyUploadController@uploadFile');
 Route::post('upload-advanced', 'UploadController@saveFileToS3');
-Route::get('/album', 'AlbumForm@formview');
+Route::get('/album', 'AlbumForm@formview')->name('album');
 Route::post('/submit','AlbumForm@submitform');
 Route::post('/subedition', 'EditionForm@editionform');
 
@@ -40,3 +40,6 @@ Route::get('/logout', function(){
      // redirect to homepage
      return redirect('/login');
 });
+Route::get('/article/{id}', 'ArchiveAlbum@archiveview')->name('article');
+Route::get('/publication', 'ArchiveAlbum@edition')->name('publication');
+Route::get('view-article/{id}', 'ArchiveAlbum@articleview');
