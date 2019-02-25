@@ -45,6 +45,7 @@ Route::get('/logout', function(){
 Route::get('/article/{id}', 'ArchiveAlbum@archiveview')->name('article');
 Route::get('/publication', 'ArchiveAlbum@edition')->name('publication');
 Route::get('view-article/{id}', 'ArchiveAlbum@articleview');
+<<<<<<< HEAD
 Route::get('many', function(){
     $users = User::find(1);
 
@@ -54,3 +55,5 @@ Route::get('many', function(){
 });
 
 Route::get('/create-zip/{id}', "ZipArchiveController@index")->name('create-zip');
+=======
+>>>>>>> 1b360367b41186be9c2cdd235eecc62e8003ad60

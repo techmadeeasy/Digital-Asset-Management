@@ -2,10 +2,17 @@
 
 @section('content')
                 <div class="col-md-2">
+<<<<<<< HEAD
                 @foreach($album_thumb as $imf)
                         <h2 style="font-family: 'Open Sans', sans-serif; font-weight: 100;"> {{$imf->names}} </h2>
                         <h5>Content</h5>
                         <p style="margin:none;"> Number of images: {{ count($images)}}</p>
+=======
+                        <h2 style="font-family: 'Open Sans', sans-serif; font-weight: 100;"></h2>
+                        <h5>Content</h5>
+                        <p style="margin:none;"> Number of images: {{ count($images)}}</p>
+                        @foreach($album_thumb as $imf)
+>>>>>>> 1b360367b41186be9c2cdd235eecc62e8003ad60
                         <p>Text: {{ $imf->description}}</p>
                         <h5 class="mt_10">Details </h5>
 
@@ -22,6 +29,7 @@
 
                     
                 </div>  
+<<<<<<< HEAD
                 <div class="col-md-3">
 
 <!-- Trigger the Modal -->
@@ -40,11 +48,19 @@
   <!-- Modal Caption (Image Text) -->
   <div id="caption"></div>
 </div>
+=======
+                <div class="col-md-2">
+<ul class="gallery list-unstyled">  @foreach($images as $img)
+<li style="float: left;padding-right: 5px; padding-top:5px;width: 90px;overflow: hidden;margin-right: 5px;" ><a href="#" rel="prettyPhoto[gallery2]" ><img src="https://dkmzc8tghb19s.cloudfront.net/fit-in/600x600/uploads/{{ $img->thumbnail}}" width="auto" height="140" alt="test" /></a></li>@endforeach </ul>
+
+
+>>>>>>> 1b360367b41186be9c2cdd235eecc62e8003ad60
 
 <div class="clearfix"></div>
 <ul class='btn primary' style='font-size:13px;margin-top: 15px;padding-left: 12px;margin-left: 4px;display:none;'><a href='#'>View Album</a></ul>
 <ul class='btn primary' style='font-size:13px;margin-top: 15px;padding-left: 12px;margin-left: 4px;display:none;'><a href='#'>Featured Article</a></ul>
 <ul class='btn primary' style='font-size:13px;margin-top: 15px;padding-left: 12px;margin-left: 4px;'>
+<<<<<<< HEAD
  <a href="/create-zip/{{$img->album_id}}">Downloads</a></ul>
 </div>
 
@@ -131,6 +147,15 @@
   }
 }
       </style>                     
+=======
+ <a href='#'>D</a></ul>
+</div>
+
+
+                            
+                           
+                           
+>>>>>>> 1b360367b41186be9c2cdd235eecc62e8003ad60
 
                       
 @endsection
