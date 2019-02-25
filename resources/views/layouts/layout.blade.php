@@ -1,3 +1,6 @@
+@if ( Auth::check() && Auth::user()->role_id==2)
+<script>window.location = "/publication";</script>
+@endif
 <!DOCTYPE html>
 <html lang="{{ app()->getLocale() }}">
 <head>
@@ -50,7 +53,7 @@
 
                             <!-- User Info -->
                             <div class="content-header-item">
-                                <a class="img-link mr-5" href="be_pages_generic_profile.html">
+                                <a class="img-link mr-5" href="#">
                                     <img class="img-avatar img-avatar32" src="{{asset('assets/css/media/avatars/avatar15.jpg')}}" alt="">
                                 </a>
                                 <a class="align-middle link-effect text-primary-dark font-w600" href="be_pages_generic_profile.html">Aidan Soule</a>
@@ -202,7 +205,7 @@
 
                                 <!-- Logo -->
                                 <div class="content-header-item">
-                                    <a class="link-effect font-w700" href="publication.php">
+                                    <a class="link-effect font-w700" href="{{route('publication')}}">
                                       <img src="assets/images/profile-logo-small.svg" width="169" height="24" onerror="this.onerror=null; this.src='assets/images/profile-logo-small.png'">
                                     </a>
                                 </div>
@@ -222,7 +225,7 @@
 
                             <!-- Visible only in normal mode -->
                             <div class="sidebar-mini-hidden-b text-center">
-                                <a class="img-link" href="publication.php">
+                                <a class="img-link" href="{{route('publication')}}">
                                     <img src="assets/images/profile-logo.svg" width="76" height="76" onerror="this.onerror=null; this.src='assets/images/profile-logo.png'">
                                 </a>
                                 <ul class="list-inline mt-10">
@@ -242,18 +245,20 @@
                                     <a href="/uploader/dashboard.php"><i class="fa fa-tachometer"></i><span class="sidebar-mini-hide"></span></a>
                                 </li>
                                <li>
-                                    <a class="nav-submenu" data-toggle="nav-submenu" href="/uploader/loader.php"><i class="fa fa-plus-square"></i><span class="sidebar-mini-hide">Add New</span></a>
+                                    <a class="nav-submenu" data-toggle="nav-submenu" href="{{route('edition')}}"><i class="fa fa-plus-square"></i><span class="sidebar-mini-hide">Add New</span></a>
+
                                       <ul>
                                         <li>
-                                            <a class="nav-submenu" href="loader.php"><span class="sidebar-mini-hide">Magazine Issue</span></a>
+                                            <a class="nav-submenu" href="{{route('edition')}}"><span class="sidebar-mini-hide">Magazine Issue</span></a>
+
                                         </li>
                                         <li>
-                                            <a class="nav-submenu"  href="album_loader.php"><span class="sidebar-mini-hide">Article or Album</span></a>
+                                            <a class="nav-submenu"  href="{{ route('album') }}"><span class="sidebar-mini-hide">Article or Album</span></a>
                                         </li>
                                   </ul>
                                 </li>
 								 <li>
-                                    <a href="report.php"><i class="fa fa-download"></i><span class="sidebar-mini-hide">View Downloads</span></a>
+                                    <a href="#"><i class="fa fa-download"></i><span class="sidebar-mini-hide">View Downloads</span></a>
                                   
                                 </li>
                             </ul>

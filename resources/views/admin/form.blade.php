@@ -50,7 +50,7 @@
                           <div class="col-12">
           <label for="files">Magazine Issue</label><select class="form-control" name="albumedition" class="form-control">
           @foreach ($list as $l)
- <option value="{{$l->name}}">{{$l->name}} </option>  
+ <option value="{{$l->id}}">{{$l->name}} </option>  
        @endforeach
           </select>
               </div>

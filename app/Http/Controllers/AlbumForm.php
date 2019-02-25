@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Form;
 use App\Edition;
 use App\Contributors;
+use App\Image;
 use Storage;
 
 class AlbumForm extends Controller
@@ -34,23 +35,30 @@ class AlbumForm extends Controller
             
             }
 //save values in database 
+            $unique_name = $request->get('albumname') . "_" . md5(time());
+
                 $filepath = date('Y-m-d') . "/" . $fileName;
                     $albumtable = new Form;
-                    $albumtable->name = $request->get('albumname');
+                    $albumtable->names = $request->get('albumname');
+                    $albumtable->unique_name = $unique_name;
                     $albumtable->category = $request->get('cat');
-                    $albumtable->edition = $request->get('albumedition');
+                    $albumtable->edition_id = $request->get('albumedition');
                     $albumtable->photographer = $request->get('albumphoto');
                         $albumtable->description = $request->get('overview');
                         //$albumtable->writer = "thewroro";
                         $albumtable->thumbnail = $filepath;
                         $albumtable->save();
-                    
+                        //pulling the album id for the image table
+                $ids = $albumtable->latest()->first();
+
                         //load data in session variable to send to the image uploader which will use it to complete the database fields for that album
                     Session::put("album", $request->get('albumname'));
-                Session::put("cat", $request->get('cat'));
+                    Session::put("cat", $request->get('cat'));
                     Session::put("edition", $request->get('albumedition'));
-
-                        return redirect("/upload_image");
+                    Session::put("album_id", $ids->id);
+                    
+                    return redirect("/upload_image");
+                    // return ( )  ;                  
     }
 
  

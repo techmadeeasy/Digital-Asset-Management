@@ -1,3 +1,6 @@
+@if ( Auth::check() && Auth::user()->role_id==2)
+<script>window.location = "/publication";</script>
+@endif
 <!DOCTYPE html>
 <html lang="{{ app()->getLocale() }}">
 <head>

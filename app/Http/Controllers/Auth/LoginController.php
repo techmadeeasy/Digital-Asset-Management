@@ -25,7 +25,15 @@ class LoginController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/create_edition';
+     protected function authenticated($request, $user){
+         if($user->role_id==1){
+             return redirect('/create_edition');
+         }
+         else{
+             return redirect('/home');
+         }
+     }
+   // protected $redirectTo = '/create_edition';
 
     /**
      * Create a new controller instance.

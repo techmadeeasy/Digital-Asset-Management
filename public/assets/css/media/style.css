@@ -1,0 +1,451 @@
+body{
+    margin-top:0px;
+    font-family:-apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol"!important;
+}
+header{
+    background-color: black;
+}
+
+.button{
+    background-color: #00b3b0;
+    margin-left: -9px;
+    border-radius: 0px;
+}
+.footer{
+    color: #878787;
+    background-color:#f6f6f8;
+    padding-left: 55px;
+    padding-right: 55px;
+}
+.clearfix{
+    margin-top: 15px;
+}
+.heading{
+    font-size: 20px;
+    color: black;
+    font-weight: 600;
+}
+.btn-submit{
+    background-color: #00b3b0;
+    color:#fff;
+}
+label{
+    font-weight: 300;
+}
+button.btn-submit::before{
+    content: '';
+    position: absolute;
+    border-width: 8px 8px 8px 0;
+    border-style: solid solid solid none;
+    border-color: transparent #00b3b0;
+    top: 27px;
+    left: 357px;
+}
+*, *:before, *:after{
+    box-sizing: border-box;
+}
+.list-inline li{
+    color:#eaeaea!important;
+     margin-right:0px!important;
+}
+.mt_80{
+    padding-top: 80px;
+    padding-bottom: 80px;
+}
+.menu{
+    background-color: black;
+    background: -moz-linear-gradient(#000 #878787)
+}
+.pd{
+    padding-top: 0px;
+    padding-bottom: 0px;
+}
+.pd a li{
+    border-bottom: 1px solid #000;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    color:#fff;
+    padding-left: 10px;
+    font-weight: 500;
+    background: linear-gradient(to right, rgb(34, 34, 34), rgb(77, 75, 75));
+
+}
+
+.pb li{
+    padding-top: 7px;
+    padding-bottom: 7px;
+    color:#000;
+}
+.pb a:hover{
+    text-decoration: none;
+    color:#00b3b0;
+    
+}
+.pdb li{
+    padding-bottom: 10px;
+    font-size: 14px;
+}
+.mt_20{
+    margin-top:20px;
+}
+.htc{
+    color:#000;
+}
+.list-inline-item:not(:last-child){
+    
+}
+.btn-danger{
+    background-color:#00b3b0!important;
+}
+
+.ml-1{
+	margin-left: 1.29rem!important;
+}
+.bg-dark {
+    background-color: #000000!important;
+}
+.nav-link{
+    padding-bottom: 10px;
+    padding-top: 10px;
+    margin: -3px;
+   /* font-size: 13px!important;*/
+   font-size: 73%!important;
+    background-color:#0bb4b1;
+    margin-right:2px;
+        padding-right: 10px;
+    padding-left: 10px;
+    border-radius: 3px;
+}
+a.nav-link: focus {
+    background-color:#eee!important;
+}
+a.dropdown-item:focus{
+    color: #000;
+    background-color: #fff!important;
+}
+a.dropdown-item:hover{
+    color: #0bb4b1!important;
+    background-color: #fff!important;
+}
+a.nav-link:hover{
+    background-color: #0bb4b1;
+    color: #fff;
+}
+a{
+    color:#fff;
+}
+.hides-md{
+    display:none;
+}
+.search-form{
+    padding-top: 25px;
+}
+.btn-group>.btn:first-child{
+        background-color: #272727;
+    border-radius: 0px;
+    border: 0px;
+    width: 218px;
+    text-align: left;
+    padding-left: 21px;
+    padding-top: 10px;
+    padding-bottom:10px;
+}
+a.img-link:hover{
+    background:#eee;
+}
+#featured{
+    background:#333;
+}
+@media only screen and (max-width: 991px){
+     a.nav-link{
+        border: 0px;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    margin: -3px;
+    color:#FFF;
+    }
+       .hides-xs{
+        display:none;
+    }
+    .shows-xs{
+    display:inline-block;
+}
+.hide{
+    display:none;
+}
+.col-sm-12{
+    max-width: 99%!important;
+}
+.col-md-2{
+    max-width: 7.667%;
+}
+    .search-form {
+    padding-top: 0px;
+    padding-bottom:15px;
+}
+.dropdown-menu{
+    background-color:#000;
+}
+.list-inline li > a.dropdown-header {
+    color: #fff!important;
+}
+    
+}
+@media only screen and (max-width: 800px){
+    .nav-link{
+        border: 0px;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    margin: -3px;
+    }
+    .input-group{
+        margin-right: 0px;
+    }
+    form.seacrh-form{
+        width:50%!important;
+    }
+    .hides-xs{
+        display:none;
+    }
+    .shows-xs{
+    display:inline-block;
+}
+.hide{
+    display:none;
+}
+.dropdown-menu{
+    background-color:#000;
+    color:#fff;
+}
+.list-inline li>a.dropdown-header{
+    color:#fff!important;
+}
+.dropdown-item:hover{
+    background-color:#000;
+}
+.img-fluid{
+    padding-top: 30px!important;
+}
+.footer {
+    color: #878787;
+    background-color: #f6f6f8;
+     padding-top: 0px; 
+    padding-bottom: 80px;
+   padding-left: 0px;
+    padding-right: 55px;
+}
+.gallery{
+    padding-top: 25px;
+}
+.search-form{
+        width: 75%;
+    margin: auto;
+    padding-top: 1px!important;
+    padding-bottom: 15px;
+}
+button.htnsn::before{
+    display:none;
+    left: 359px;
+}
+}
+
+
+a.ftlnks{
+    color: #848484!important;
+    font-size: 14px;
+}
+a.ftlnks :hover,a.ftlnks :active{
+    color:#0bb4b1!important;
+    text-decoration:none!important;
+    color:#00b3b0;;
+}
+.black{
+    color:#000!important;
+}
+.list-inline li>a.dropdown-header{
+    color: #000;
+    font-size: 13px;
+}
+
+a.dropdown-item{
+    color:#000;
+}
+.list-inline li>a.dropdown-header:hover{
+    text-decoration:none;
+    color:#0bb4b1;
+}
+.dropdown-item{
+    font-weight:600;
+    font-size: 14px;
+}
+.img-fluid{
+    padding-top:10px;
+}
+.primary{
+    background-color:#0bb4b1;
+    color:#fff;
+}
+.primary>a:hover{
+     background-color:#0bb4b1!important;
+    color:#fff;
+    text-decoration:none!important;
+}
+.bar{
+    background-color: #0bb4b1!important;
+    color: #fff;
+   padding: 0px 10px 0px 10px;
+       height: 40px;
+}
+.navbar{
+    padding:0px;
+}
+.form-control:focus{
+    border-color:#fff;
+    background-color:#000;
+}
+button.navbar-toggler:focus{
+    border-color:#0bb4b1;
+}
+
+.htnsn{
+    background-color: #0bb4b1!important;
+    color: #fff!important;
+    height: 38px!important;
+    font-size: 76%;
+}
+.htn{
+    background-color: #000;
+    margin-right: -5px;
+    height: 38px;
+}
+.test{
+    /*margin-top: 10px;*/
+}
+a.bread {
+    text-decoration:none;
+    font-size:12px;
+}
+.list-inline-item a.bread:hover {
+    text-decoration:none;
+    color:#000!important;
+}
+.btn-group{
+    border: 0.5px solid #fff;
+}
+.feat{
+    font-size:12px!important;
+}
+ul.bl>li>a {
+    color: #878787!important;
+}
+.strech{
+       background-color: #000;
+    width: 100%;
+    height: 50px;
+    color: #Fff;
+    font-size: 13px;
+}
+#ft-p{
+    padding:15px;
+    margin-bottom:0px;
+}
+.fth1{
+        font-size: 20px;
+    line-height: 20px;
+    font-weight: 500;
+    font-family: 'Open Sans', sans-serif; font-weight: 100;padding-top: 10px;
+}
+.navbar-brand{
+        padding: 11px 0px 11px 0px;
+}
+.clears{
+    margin-bottom:27px;
+}
+.ehehe{
+    left:250px;
+}
+.eheh{
+    left:140px;
+}
+#this{
+    background-color: #e0e3e3!important;
+    color: #000;
+}
+#myImg {
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+#myImg:hover {opacity: 0.7;}
+
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.9); /* Black w/ opacity */
+}
+
+/* Modal Content (Image) */
+.modal-content {
+    margin: auto;
+    display: block;
+    width: 80%;
+    max-width: 700px;
+}
+
+/* Caption of Modal Image (Image Text) - Same Width as the Image */
+#caption {
+    margin: auto;
+    display: block;
+    width: 80%;
+    max-width: 700px;
+    text-align: center;
+    color: #ccc;
+    padding: 10px 0;
+    height: 150px;
+}
+
+/* Add Animation - Zoom in the Modal */
+.modal-content, #caption { 
+    animation-name: zoom;
+    animation-duration: 0.6s;
+}
+
+@keyframes zoom {
+    from {transform:scale(0)} 
+    to {transform:scale(1)}
+}
+
+/* The Close Button */
+.close {
+    position: absolute;
+    top: 15px;
+    right: 35px;
+    color: #f1f1f1;
+    font-size: 40px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.close:hover,
+.close:focus {
+    color: #bbb;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* 100% Image Width on Smaller Screens */
+@media only screen and (max-width: 700px){
+    .modal-content {
+        width: 80%;
+    }
+}
