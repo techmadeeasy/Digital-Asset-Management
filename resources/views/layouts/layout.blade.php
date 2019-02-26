@@ -205,7 +205,7 @@
 
                                 <!-- Logo -->
                                 <div class="content-header-item">
-                                    <a class="link-effect font-w700" href="{{route('publication')}}">
+                                    <a class="link-effect font-w700" href="{{route('publication', 2 )}}">
                                       <img src="assets/images/profile-logo-small.svg" width="169" height="24" onerror="this.onerror=null; this.src='assets/images/profile-logo-small.png'">
                                     </a>
                                 </div>
@@ -225,7 +225,7 @@
 
                             <!-- Visible only in normal mode -->
                             <div class="sidebar-mini-hidden-b text-center">
-                                <a class="img-link" href="{{route('publication')}}">
+                                <a class="img-link" href="{{route('publication', 2)}}">
                                     <img src="assets/images/profile-logo.svg" width="76" height="76" onerror="this.onerror=null; this.src='assets/images/profile-logo.png'">
                                 </a>
                                 <ul class="list-inline mt-10">
@@ -256,6 +256,9 @@
                                             <a class="nav-submenu"  href="{{ route('album') }}"><span class="sidebar-mini-hide">Article or Album</span></a>
                                         </li>
                                   </ul>
+                                </li>
+                                <li>
+                                    <a href="/archive"><i class="fa fa-download"></i><span class="sidebar-mini-hide">Archives</span></a>
                                 </li>
 								 <li>
                                     <a href="#"><i class="fa fa-download"></i><span class="sidebar-mini-hide">View Downloads</span></a>

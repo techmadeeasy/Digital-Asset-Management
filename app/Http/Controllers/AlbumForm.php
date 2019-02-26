@@ -7,11 +7,17 @@ use App\Form;
 use App\Edition;
 use App\Contributors;
 use App\Image;
+use App\Year;
 use Storage;
 
 class AlbumForm extends Controller
 {
     //
+    public function yearlist(){
+        $year = new Year;
+        $listy = $year->all();
+        return view('admin.edition', compact("listy"));
+    }
     public function formview(Request $request){
 
         $editiontb = new Edition;

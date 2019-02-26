@@ -27,7 +27,7 @@ class EditionForm extends Controller
         $editiontb->name = $request->get("issue");
         $editiontb->magazine = $request->get("mag");
         $editiontb->month = $request->get("month");
-        $editiontb->year = $request->get("year");
+        $editiontb->year_id = $request->get("year");
         $editiontb->terms= $request->get("terms");
         $editiontb->thumbnail = $filepath;
         $editiontb->save();

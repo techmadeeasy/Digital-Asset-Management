@@ -71,9 +71,9 @@
                 <div  class="form-group row">    
                   <div class="col-12">
                     <label for="year">Year of Publication</label> <select class="form-control" name="year">
-                          <option value="2017">2017</option>    
-                          <option value="2018">2018</option> 
-                          <option value="2019">2019</option> 
+                         @foreach ($listy as $list)
+                          <option value="{{ $list->id}}">{{ $list->name}}</option>  
+                          @endforeach
                     </select>
                     </div>
                   </div>

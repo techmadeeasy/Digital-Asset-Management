@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-
-=======
->>>>>>> 1b360367b41186be9c2cdd235eecc62e8003ad60
 <!DOCTYPE html>
     <html lang="{{ app()->getLocale() }}">
         <head>
@@ -58,12 +54,9 @@
                                         </ul>
                                     </li>
                                 @endguest
-<<<<<<< HEAD
                                 @if ( Auth::check() && Auth::user()->role_id==2)
                                 <span>This is it</span>
                                 @endif
-=======
->>>>>>> 1b360367b41186be9c2cdd235eecc62e8003ad60
                             </ul>
                         </div>
                     </div>
@@ -169,7 +162,7 @@
                                                                                 <li ><a class="dropdown-item list-inline-item" href="#">Magazine</a></li>
                                                                                 <li>
                                                                                     <ul class="list-unstyled">
-                                                                                        <li><a  class=" dropdown-header" href="{{ route('publication')}}">House and Leisure</a></li>
+                                                                                        <li><a  class=" dropdown-header" href="{{ route('publication', 2)}}">House and Leisure</a></li>
                                                                                     </ul>
                                                                                 </li>
                                                                             </ul>
@@ -204,17 +197,11 @@
   <div class="col-md-4 hides-xs" style="padding-top:  25px;">
       <ul class="list-inline text-right">
       <li class="nav-item mr-0 list-inline-item item" style="position:static;">
-<<<<<<< HEAD
 @guest
                      <a class="nav-link"  href="/login"  aria-haspopup="true" aria-expanded="false">Register/Login</a>
 @else
         <a class="nav-link"  href="/logout"  aria-haspopup="true" aria-expanded="false">Logout</a>
 @endguest
-=======
-
-					 <a class="nav-link"  href="signin.php"  aria-haspopup="true" aria-expanded="false">Register/Login</a>
-					
->>>>>>> 1b360367b41186be9c2cdd235eecc62e8003ad60
 							</li>
 							<li class="nav-item mr-0 list-inline-item" style="position:static;">
 							<a class="nav-link" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"><i class="fas fa-heart"></i> Mywishlist</a>
@@ -239,16 +226,13 @@
                    Featured Articles <i class="fas fa-angle-right"></i>
                  </li>
                  <li class="list-inline-item">
-                     <a class="bread" href="{{ route('publication')}}">House and Leisure Editions </a><i class="fas fa-angle-right"></i>
+                     <a class="bread" href="{{ route('publication', 2)}}">House and Leisure Editions </a><i class="fas fa-angle-right"></i>
                  </li>
-<<<<<<< HEAD
                  @isset($albm)
                  <li class="list-inline-item">
                      <a class="bread" href="/article/{{$albm->id}}">{{ $albm->name}} </a><i class="fas fa-angle-right"></i>
                  </li>
                  @endisset
-=======
->>>>>>> 1b360367b41186be9c2cdd235eecc62e8003ad60
                   <li class="list-inline-item feat">
                  </li>
              </ul>
@@ -269,7 +253,7 @@
     Publications
   </button>
  <div class="dropdown-menu" aria-labelledby="dropdownMenu1">
-    <a class="dropdown-item" href="publication.php">House and Leisure</a>
+    <a class="dropdown-item" href="{{ route('publication', 2)}}">House and Leisure</a>
   </div>
 </div>
 <div class="btn-group dropright test">
@@ -277,7 +261,7 @@
     2019
   </button>
   <div class="dropdown-menu tops" aria-labelledby="dropdownMenu1">
-  <a class="dropdown-item" href="http://partners.syndication-bazaar.com/uploader/publication.php?link=2019">View All</a>
+  <a class="dropdown-item" href="{{ route('publication', 3)}}">View All</a>
     <a class="dropdown-item" href="http://partners.syndication-bazaar.com/uploader/archive.php?link=January 2019">January</a>
   </div>
 </div>
@@ -286,9 +270,9 @@
     2018
   </button>
   <div class="dropdown-menu tops" aria-labelledby="dropdownMenu1">
-      <a class="dropdown-item" href="http://partners.syndication-bazaar.com/uploader/publication.php?link=2018">View All</a>
-    <a class="dropdown-item" href="http://partners.syndication-bazaar.com/uploader/archive.php?link=January 2018">January</a>
-    <a class="dropdown-item" href="http://partners.syndication-bazaar.com/uploader/archive.php?link=February 2018">February</a>
+      <a class="dropdown-item" href="{{ route('publication', 2)}}">View All</a>
+    <a class="dropdown-item" href="#">January</a>
+    <a class="dropdown-item" href="#">February</a>
     <a class="dropdown-item" href="http://partners.syndication-bazaar.com/uploader/archive.php?link=March 2018">March</a>
  <a class="dropdown-item" href="http://partners.syndication-bazaar.com/uploader/archive.php?link=April 2018">April</a>
  <a class="dropdown-item" href="http://partners.syndication-bazaar.com/uploader/archive.php?link=May 2018">May</a>
@@ -311,7 +295,6 @@
     </div>
 
     <!-- Scripts -->
-<<<<<<< HEAD
 <script>
     function showModel($id){
 // Get the modal
@@ -341,41 +324,6 @@ span.onclick = function() {
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-=======
-    <!-- <script src="{{ asset('js/app.js') }}"></script> -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/js/bootstrap.min.js" integrity="sha384-o+RDsa0aLu++PJvFqy8fFScvbHFLtbvScb8AjopnFD+iEQ7wo/CG0xlczd+2O/em" crossorigin="anonymous"></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js" type="text/javascript"></script>
-  <link rel="stylesheet" href="/assets/slider-assets/css/prettyPhoto.css" type="text/css" media="screen" title="prettyPhoto main stylesheet" charset="utf-8" />
-
-        <script src="/assets/slider-assets/js/jquery.prettyPhoto.js" type="text/javascript" charset="utf-8"></script>
-        
-
-            <script type="text/javascript" charset="utf-8">
-			
-				api_titles=['API Call Image 1','API Call Image 2','API Call Image 3'];
-				api_descriptions=['Description 1','Description 2','Description 3'];
-            </script>
-            <script type="text/javascript" charset="utf-8">
-                $(document).ready(function(){
-                    $("area[rel^='prettyPhoto']").prettyPhoto();
-                    
-                    $(".gallery:first a[rel^='prettyPhoto']").prettyPhoto({animation_speed:'normal',theme:'light_square',slideshow:3000, autoplay_slideshow: true});
-                    $(".gallery:gt(0) a[rel^='prettyPhoto']").prettyPhoto({animation_speed:'fast',slideshow:10000, hideflash: true});
-            
-                    $("#custom_content a[rel^='prettyPhoto']:first").prettyPhoto({
-                        custom_markup: '<div id="map_canvas" style="width:260px; height:265px"></div>',
-                        changepicturecallback: function(){ initialize(); }
-                    });
-    
-                    $("#custom_content a[rel^='prettyPhoto']:last").prettyPhoto({
-                        custom_markup: '<div id="bsap_1259344" class="bsarocks bsap_d49a0984d0f377271ccbf01a33f2b6d6"></div><div id="bsap_1237859" class="bsarocks bsap_d49a0984d0f377271ccbf01a33f2b6d6" style="height:260px"></div><div id="bsap_1251710" class="bsarocks bsap_d49a0984d0f377271ccbf01a33f2b6d6"></div>',
-                        changepicturecallback: function(){ _bsap.exec(); }
-                    });
-                });
-                </script>
->>>>>>> 1b360367b41186be9c2cdd235eecc62e8003ad60
                 
 </body>
 </html>

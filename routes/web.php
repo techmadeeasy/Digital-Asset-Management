@@ -22,9 +22,7 @@ Route::get('/upload_image', function () {
         'code' => file_get_contents(resource_path('assets/js/jquery-file-upload.js'))
     ]);
 });
-Route::get("create_edition", function(){
-    return view('admin/edition');
-})->name('edition');
+Route::get("create_edition", 'AlbumForm@yearlist')->name('edition');
 
 Route::post('upload', 'DependencyUploadController@uploadFile');
 Route::post('upload-advanced', 'UploadController@saveFileToS3');
@@ -43,9 +41,8 @@ Route::get('/logout', function(){
      return redirect('/login');
 });
 Route::get('/article/{id}', 'ArchiveAlbum@archiveview')->name('article');
-Route::get('/publication', 'ArchiveAlbum@edition')->name('publication');
+Route::get('/publication/{id}', 'ArchiveAlbum@edition')->name('publication');
 Route::get('view-article/{id}', 'ArchiveAlbum@articleview');
-<<<<<<< HEAD
 Route::get('many', function(){
     $users = User::find(1);
 
@@ -53,7 +50,9 @@ Route::get('many', function(){
         return $role->name;
     }
 });
-
+Route::get('/archive', "ArchivingView@editonlist");
+Route::get('/archive/{id}', 'ArchivingView@featurelist');
+Route::get('/archive/{id}/thumbnail', 'ArchivingView@thumbnailview');
+Route::get('/delete/{id}/thumbnail', "ArchivingView@thumbnaildelete");
+Route::get('/delete/{id}/album', "ArchivingView@albumdelete");
 Route::get('/create-zip/{id}', "ZipArchiveController@index")->name('create-zip');
-=======
->>>>>>> 1b360367b41186be9c2cdd235eecc62e8003ad60

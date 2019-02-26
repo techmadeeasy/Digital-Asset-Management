@@ -5,24 +5,15 @@
                         <div class="row">
                         @foreach($editionlist as $edit)
                             <div class='col-sm-6 col-md-4 space' data-category='logo'>
-<<<<<<< HEAD
                                 <a class='img-link' href='/article/{{ $edit->id}}'> 
                                 <img class='img-fluid img-thumb' src='https://dkmzc8tghb19s.cloudfront.net/fit-in/600x600/uploads/{{ $edit->thumbnail }}' alt='test'>
                                 <div class='overlay'><div class='text'>{{ $edit->name}}</div></div>
-=======
-                                <a class='img-link' href='/article/{{ $edit->id}}'>
-
-
-                                    <img class='img-fluid img-thumb' src='https://dkmzc8tghb19s.cloudfront.net/fit-in/600x600/uploads/{{ $edit->thumbnail }}' alt='test'>
-
->>>>>>> 1b360367b41186be9c2cdd235eecc62e8003ad60
                                 </a>
                             </div>
                     @endforeach
 
                         </div>
                         </div>
-<<<<<<< HEAD
 <style>
                         .imagexx {
   display: block;
@@ -63,6 +54,4 @@ padding-left: 15px;
 padding-right: 15px;
 }
             </style>
-=======
->>>>>>> 1b360367b41186be9c2cdd235eecc62e8003ad60
 @endsection
