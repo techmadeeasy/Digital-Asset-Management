@@ -4,7 +4,7 @@
 <div class="content">
                     <div class="block">
                         <div class="block-header block-header-default">
-                            <h3 class="block-title">Add New Article</h3>
+                            <h3 class="block-title">Add New Feature</h3>
                     
                             <div class="block-options">
                                 <button type="button" class="btn-block-option" data-toggle="block-option" data-action="state_toggle" data-action-mode="demo">
@@ -20,7 +20,7 @@
               <div class="col-md-7">
                 <div class="form-group row">    
                     <div class="col-12">
-                          <label for="files">Album Name</label><input type="text" name="albumname" class="form-control" multiple="multiple"/>
+                          <label for="files">Title</label><input type="text" name="albumname" class="form-control" multiple="multiple"/>
                     </div>
                 </div> 
               </div>
@@ -49,15 +49,25 @@
                   <div id="" class="form-group row">    
                           <div class="col-12">
           <label for="files">Magazine Issue</label><select class="form-control" name="albumedition" class="form-control">
-          @foreach ($list as $l)
- <option value="{{$l->id}}">{{$l->name}} </option>  
+          @foreach ($list as $l=>$val)
+ <option value="{{$l}}">{{$val}} </option>  
        @endforeach
           </select>
+              </div>
+              </div>
+              <div class="form-group row">
+              <div class="col-3">
+                <label for="year">Year</label> <select name="years" id="year" class="form-control">
+                @foreach($years as $year)
+                    <option value="{{ $year->id}}"> {{ $year->name}}</option>
+                    @endforeach
+                </select>
+              
               </div>
             </div>
             <div class="form-group row">    
                     <div class="col-12">
-          <label for="files">Photographer</label><select class="form-control" name="albumphoto" class="form-control">
+          <label for="files">Photographer</label><select id="example-select2-multi" class="js-select2 form-control form-control-lg" name="albumphoto">
               <option value="none"></option>
           @foreach ($listcon as $con)
  <option value="{{$con->name}}">{{$con->name}} </option>  

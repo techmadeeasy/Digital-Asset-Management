@@ -13,8 +13,8 @@
             <link rel="stylesheet" id="css-main" href="{{ asset('assets/css/media/files.css') }}">
             <link rel="stylesheet" id="css-main" href="{{ asset('assets/css/media/style.css') }}">
             <title>{{ config('app.name', 'Laravel') }}</title>
-
             <!-- Styles -->
+            
             <link href="{{ asset('css/app.css') }}" rel="stylesheet">
         </head>
         <body>
@@ -228,6 +228,16 @@
                  <li class="list-inline-item">
                      <a class="bread" href="{{ route('publication', 2)}}">House and Leisure Editions </a><i class="fas fa-angle-right"></i>
                  </li>
+                 @isset($years)
+                 <li class="list-inline-item">
+                     <a class="bread" href="/publication/{{$years->id}}">{{ $years->name}} </a><i class="fas fa-angle-right"></i>
+                 </li>
+                 @endisset
+                 @isset($edition)
+                 <li class="list-inline-item">
+                     <a class="bread" href="/publication/{{$edition->id}}">{{ $edition->name}} </a><i class="fas fa-angle-right"></i>
+                 </li>
+                 @endisset
                  @isset($albm)
                  <li class="list-inline-item">
                      <a class="bread" href="/article/{{$albm->id}}">{{ $albm->name}} </a><i class="fas fa-angle-right"></i>
@@ -262,7 +272,7 @@
   </button>
   <div class="dropdown-menu tops" aria-labelledby="dropdownMenu1">
   <a class="dropdown-item" href="{{ route('publication', 3)}}">View All</a>
-    <a class="dropdown-item" href="http://partners.syndication-bazaar.com/uploader/archive.php?link=January 2019">January</a>
+    <a class="dropdown-item" href="#">February</a>
   </div>
 </div>
 <div class="btn-group dropright test">

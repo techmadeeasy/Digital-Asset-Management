@@ -27,7 +27,17 @@
     <link rel="apple-touch-icon" sizes="180x180" href="asset {{ asset('assets/media/favicons/apple-touch-icon-180x180.png') }}">
     <link rel="stylesheet" id="css-main" href="{{ asset('assets/css/media/codebase.min.css') }}">
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
- 
+ <!-- plugins -->
+ <link rel="stylesheet" href="{{ asset('assets/js/plugins/bootstrap-datepicker/css/bootstrap-datepicker3.min.css')}}">
+        <link rel="stylesheet" href="{{ asset('assets/js/plugins/bootstrap-colorpicker/css/bootstrap-colorpicker.min.css')}}">
+        <link rel="stylesheet" href="{{ asset('assets/js/plugins/select2/select2.min.css')}}">
+        <link rel="stylesheet" href="{{ asset('assets/js/plugins/select2/select2-bootstrap.min.css')}}">
+        <link rel="stylesheet" href="{{ asset('assets/js/plugins/jquery-tags-input/jquery.tagsinput.min.css')}}">
+        <link rel="stylesheet" href="{{ asset('assets/js/plugins/jquery-auto-complete/jquery.auto-complete.min.css')}}">
+        <link rel="stylesheet" href="{{ asset('assets/js/plugins/ion-rangeslider/css/ion.rangeSlider.min.css')}}">
+        <!-- <link rel="stylesheet" href="assets/js/plugins/ion-rangeslider/css/ion.rangeSlider.skinHTML5.min.css">
+        <link rel="stylesheet" href="assets/js/plugins/dropzonejs/min/dropzone.min.css"> -->
+        <!-- plugins -->
 </head>
     <body>
     @guest 
@@ -206,7 +216,7 @@
                                 <!-- Logo -->
                                 <div class="content-header-item">
                                     <a class="link-effect font-w700" href="{{route('publication', 2 )}}">
-                                      <img src="assets/images/profile-logo-small.svg" width="169" height="24" onerror="this.onerror=null; this.src='assets/images/profile-logo-small.png'">
+                                      <img src="/assets/images/profile-logo-small.svg" width="169" height="24" onerror="this.onerror=null; this.src='assets/images/profile-logo-small.png'">
                                     </a>
                                 </div>
                                 <!-- END Logo -->
@@ -219,14 +229,14 @@
                         <div class="content-side content-side-full content-side-user px-10 align-parent">
                             <!-- Visible only in mini mode -->
                             <div class="sidebar-mini-visible-b align-v animated fadeIn">
-                                <img src="assets/images/profile-logo.svg" width="76" height="76" onerror="this.onerror=null; this.src='assets/images/profile-logo.png'">
+                                <img src="/assets/images/profile-logo.svg" width="76" height="76" onerror="this.onerror=null; this.src='assets/images/profile-logo.png'">
                             </div>
                             <!-- END Visible only in mini mode -->
 
                             <!-- Visible only in normal mode -->
                             <div class="sidebar-mini-hidden-b text-center">
                                 <a class="img-link" href="{{route('publication', 2)}}">
-                                    <img src="assets/images/profile-logo.svg" width="76" height="76" onerror="this.onerror=null; this.src='assets/images/profile-logo.png'">
+                                    <img src="/assets/images/profile-logo.svg" width="76" height="76" onerror="this.onerror=null; this.src='assets/images/profile-logo.png'">
                                 </a>
                                 <ul class="list-inline mt-10">
                                     <li class="list-inline-item">
@@ -253,7 +263,7 @@
 
                                         </li>
                                         <li>
-                                            <a class="nav-submenu"  href="{{ route('album') }}"><span class="sidebar-mini-hide">Article or Album</span></a>
+                                            <a class="nav-submenu"  href="{{ route('album') }}"><span class="sidebar-mini-hide">Features</span></a>
                                         </li>
                                   </ul>
                                 </li>
@@ -468,9 +478,18 @@
         <script src="{{ asset('assets/js/core/js.cookie.min.js')}}"></script>
         <script src="{{ asset('assets/js/codebase.js')}}"></script>
        
+
+        <script src="assets/js/plugins/bootstrap-datepicker/js/bootstrap-datepicker.min.js"></script>
+                <script src="{{ asset('assets/js/plugins/bootstrap-colorpicker/js/bootstrap-colorpicker.min.js') }}"></script>
+                <script src="{{ asset('assets/js/plugins/bootstrap-maxlength/bootstrap-maxlength.min.js')}}"></script>
+                <script src="{{ asset('assets/js/plugins/select2/select2.full.min.js')}}"></script>
+                <script src="{{ asset('assets/js/plugins/jquery-tags-input/jquery.tagsinput.min.js')}}"></script>
+                <script src="{{ asset('assets/js/plugins/jquery-auto-complete/jquery.auto-complete.min.js')}}"></script>
+                <script src="{{ asset('assets/js/plugins/masked-inputs/jquery.maskedinput.min.js')}}"></script>
+                <!-- <script src="assets/js/plugins/ion-rangeslider/js/ion.rangeSlider.min.js"></script>
+                <script src="assets/js/plugins/dropzonejs/min/dropzone.min.js"></script> -->
         <!-- Page JS Plugins -->
       
-       
         @endguest
     </body>
 </html>

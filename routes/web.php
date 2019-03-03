@@ -56,3 +56,6 @@ Route::get('/archive/{id}/thumbnail', 'ArchivingView@thumbnailview');
 Route::get('/delete/{id}/thumbnail', "ArchivingView@thumbnaildelete");
 Route::get('/delete/{id}/album', "ArchivingView@albumdelete");
 Route::get('/create-zip/{id}', "ZipArchiveController@index")->name('create-zip');
+Route::get('/edit/{id}', 'ArchivingView@edit');
+Route::post('/update-thumbnail', 'ArchivingView@update_thumbnail');
+

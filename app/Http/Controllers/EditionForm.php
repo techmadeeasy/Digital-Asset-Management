@@ -23,14 +23,23 @@ class EditionForm extends Controller
         }
         $filepath = date('Y-m-d') . "/" . $fileName;
         $editiontb = new Edition;
-
-        $editiontb->name = $request->get("issue");
+        $month = ["zero", "January", "February", "March", "April", 
+        "May", "June", "July", "August", 
+     "September", "October", "November", "December" ];
+        $editiontb->issue = $request->get("issue");
+        $editiontb->name = $month[$request->get("month")];
         $editiontb->magazine = $request->get("mag");
         $editiontb->month = $request->get("month");
         $editiontb->year_id = $request->get("year");
         $editiontb->terms= $request->get("terms");
         $editiontb->thumbnail = $filepath;
         $editiontb->save();
-        return redirect('/album');
+        //return redirect('/album');
+        return "<script> if(confirm('Editions created successfully')){
+            window.location = '/album'
+        } else{
+            window.location = '/archive';
+        };
+        </script>";
     }
 }

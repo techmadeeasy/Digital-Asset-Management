@@ -11,4 +11,7 @@ class Edition extends Model
     public function album(){
         return $this->hasOne('App\Form');
     }
+    public function year(){
+        return $this->belongsTo('App\Year');
+    }   
 }

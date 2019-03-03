@@ -15,16 +15,20 @@ class AlbumForm extends Controller
     //
     public function yearlist(){
         $year = new Year;
-        $listy = $year->all();
+        $listy = $year->get()->sortByDesc("name");
         return view('admin.edition', compact("listy"));
     }
     public function formview(Request $request){
 
-        $editiontb = new Edition;
-        $list = $editiontb->all();
+       
+        $list =[" ", "January", "February", "March", "April", 
+        "May", "June", "July", "August", 
+     "September", "October", "November", "December" ];
         $contributors = new Contributors;
         $listcon = $contributors->all();
-        return view('admin.form', compact("list", "listcon"));
+        //get the year list 
+        $years = Year::all()->sortByDesc("name");
+        return view('admin.form', compact("list", "listcon", "years"));
     }
     
     
@@ -48,12 +52,19 @@ class AlbumForm extends Controller
                     $albumtable->names = $request->get('albumname');
                     $albumtable->unique_name = $unique_name;
                     $albumtable->category = $request->get('cat');
-                    $albumtable->edition_id = $request->get('albumedition');
+                    //determine edition
+                    $edition = Edition::where("year_id",  $request->get('years'))->where( "month",  $request->get('albumedition'))->get();
+                    if($edition->count()<=0){
+                        echo  "<script> alert('The edition you picked does not exist, create it first!')
+                        window.location = '/create_edition';
+                    </script>";
+                    };
+                    $albumtable->edition_id = $edition[0]->id;
                     $albumtable->photographer = $request->get('albumphoto');
-                        $albumtable->description = $request->get('overview');
+                    $albumtable->description = $request->get('overview');
                         //$albumtable->writer = "thewroro";
-                        $albumtable->thumbnail = $filepath;
-                        $albumtable->save();
+                    $albumtable->thumbnail = $filepath;
+                    $albumtable->save();
                         //pulling the album id for the image table
                 $ids = $albumtable->latest()->first();
 
@@ -63,11 +74,12 @@ class AlbumForm extends Controller
                     Session::put("edition", $request->get('albumedition'));
                     Session::put("album_id", $ids->id);
                     
-                    return redirect("/upload_image");
-                    // return ( )  ;                  
+               //    return redirect("/upload_image");
+           return   "<script> alert('Feature created successfully, proceed to upload images?')
+                window.location = '/upload_image';
+            </script>";
     }
 
- 
 }
 
 

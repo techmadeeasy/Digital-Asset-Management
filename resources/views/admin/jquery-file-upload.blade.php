@@ -15,7 +15,7 @@
     <div class="image">
         <img style="margin-top:100px;" src="{{ asset('assets/images/profile-logo.svg')}}" width=200 alt="">
     </div>
-    <h4 style="padding-top:20px">Upload Your High Resolution Images For the {{Session::get('album')}} album</h4>
+    <h4 style="padding-top:20px">Upload High Resolution Images For the {{Session::get('album')}} Feature</h4>
     <div  class="form-group row">    
                   <div class="col-12">
           <label for="file">Select files</label> <input id="fileupload" type="file" class="" name="file" data-url="{{ url('upload') }}" style="display: inline;" multiple>
