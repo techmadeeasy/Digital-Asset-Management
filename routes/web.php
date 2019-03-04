@@ -13,9 +13,9 @@ use App\User;
 |
 */
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
+Route::get('/', function() {
+    return redirect("/publication/2");
+});
 
 Route::get('/upload_image', function () {
     return view('admin/jquery-file-upload', [
@@ -58,4 +58,6 @@ Route::get('/delete/{id}/album', "ArchivingView@albumdelete");
 Route::get('/create-zip/{id}', "ZipArchiveController@index")->name('create-zip');
 Route::get('/edit/{id}', 'ArchivingView@edit');
 Route::post('/update-thumbnail', 'ArchivingView@update_thumbnail');
+
+
 

@@ -28,13 +28,21 @@ class ArchivingView extends Controller
     public function thumbnailview($id){
         $thumbnail = new Image;
         $get_thumb = $thumbnail->where("album_id", $id)->get();
-
+        foreach($get_thumb as $img_id){
+            $a=Image::find($img_id->id);
+           foreach($a->tags as $tname){
+               $tag_name[$tname->name] =  $img_id->id;
+           }
+        }
         
         $album_name = Form::where("id", $id)->get();
-        return view("admin.thumbnail", compact("get_thumb", "album_name"));
+        return view("admin.thumbnail", compact("get_thumb", "album_name", "tag_name"));
+        //return $tag_name;
+      
     }
     public function thumbnaildelete($id){
         $thumbnail = new Image;
+       
         $delete = $thumbnail->find($id)->delete();
         return back();
     }
@@ -54,6 +62,7 @@ class ArchivingView extends Controller
                 }
             }
             else{
+                //random list data so that we do not send an empty $list array
                 $list = [0.2, 0.4];
             }
         $tags = Tag::all();

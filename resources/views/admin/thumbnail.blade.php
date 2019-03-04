@@ -25,7 +25,18 @@
                                         <img class='img-fluid img-thumb' src='https://dkmzc8tghb19s.cloudfront.net/fit-in/150x150/uploads/{{ $thumb->thumbnail }}' alt='editon cover page'>
                                         </td>
                                         <td class="font-w600" style="height:150px;padding:0px;">{{ $thumb->category }}</td>
-                                        <td class="d-none d-sm-table-cell" style="height:150px;padding:0px;"> {{ $thumb->keywords }}</td>
+                                        <td class="d-none d-sm-table-cell" style="height:150px;padding:0px;">
+                                         @if(in_array($thumb->id, $tag_name))
+                                         
+                                         @foreach($tag_name as $key=>$val)
+
+                                         @if($val==$thumb->id)
+                                          {{ $key }}, 
+                                         @endif
+                                         @endforeach
+                                         @else 
+                                        No tags defined 
+                                        @endif</td>
                                         <td class="text-center" style="height:150px;padding:0px;">
                                             <div class="btn-group">
                                                 <a  class="btn btn-sm btn-secondary" href="/edit/{{ $thumb->id}}">

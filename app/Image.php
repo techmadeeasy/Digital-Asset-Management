@@ -15,7 +15,7 @@ class Image extends Model
 
 
     public function tags(){
-        return $this->belongsToMany("App\Tag")->withPivot("image_tag");
+        return $this->belongsToMany("App\Tag");
     }
 }
 
