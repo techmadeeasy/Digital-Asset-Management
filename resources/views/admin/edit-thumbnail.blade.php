@@ -24,9 +24,9 @@
         <div class="col-md-12">
               <div class="form-group row">
                   <div class="col-12">
-                      <label>Category</label><select class="custom-select" name="mag"> 
+                      <label>Category</label><select class="custom-select" name="cat"> 
                       @foreach($category as $cat)
-                          <option value=" {{ $cat->name}} ">{{$cat->name}}</option>
+                          <option value=" {{ $cat->id}} ">{{$cat->name}}</option>
                           @endforeach
                             </select>
                     </div>
@@ -68,13 +68,13 @@
                                         </div>
                                         @endif
                                         @endforeach
+                                       
                                                         </div>
-                                        <!-- <div class="col-6">
-                                            <label class="css-control css-control-danger css-checkbox">
-                                                <input type="checkbox" class="css-control-input" checked="">
-                                                <span class="css-control-indicator"></span> Danger
-                                            </label>
-                                        </div> --> 
+                                        
+                                        <div class="form-material form-material-primary">
+                                                    <input type="text" class="form-control" id="material-color-primary" name="new-tag" placeholder="eg: Rustic">
+                                                    <label for="material-color-primary">Add new tag</label>
+                                                </div>
                                         <div style="padding-left:40%">
                                         <button type="submit" class="btn btn-primary" style="margin-top:10px;">Submit</button>
                                         </div>
@@ -95,7 +95,7 @@
   .content {
       width:41%;
   }
-  .capitalize{
+  .text-capital{
       text-transform:capitalize!important;
   }
   </style>

@@ -80,7 +80,7 @@ class ArchivingView extends Controller
     }
     
     public function update_thumbnail(Request $request ){
-
+    $cat = $request->get("cat");
     $image = new Tag_image ;
     $taglist = $request->get("hellow");
 //   if(count($request->get("hellow")>1)){}
@@ -92,6 +92,12 @@ class ArchivingView extends Controller
     $image->image_id = $imgid;
     $fills = $image->create(['tag_id'=>$tag, 'image_id'=>$imgid]);
    // $image->save();
+   }
+
+   //add new tag
+
+   if (count($request->get("new-tag")>=1)){
+       $new = Tag::create(["name"=>$request->get("new-tag"), "cat_id"=>$cat]);
    }
     return redirect("/edit/$imgid");
     }
