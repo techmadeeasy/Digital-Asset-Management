@@ -50,7 +50,7 @@ Route::get('many', function(){
         return $role->name;
     }
 });
-Route::get('/archive', "ArchivingView@editonlist");
+Route::get('/archive-admin/{id}', "ArchivingView@editonlist");
 Route::get('/archive/{id}', 'ArchivingView@featurelist');
 Route::get('/archive/{id}/thumbnail', 'ArchivingView@thumbnailview');
 Route::get('/delete/{id}/thumbnail', "ArchivingView@thumbnaildelete");

@@ -4,7 +4,7 @@
 <div class="content">
 <div class="block">
                         <div class="block-header block-header-default">
-                            <h3 class="block-title">Edition  <small>List</small></h3>
+                            <h3 class="block-title">Edition  <small>List</small></h3><span> <a href="/archive-admin/2">2018</a> - <a href="/archive-admin/3" >2019</a></span>
                         </div>
                         <div class="block-content block-content-full">
                             <!-- DataTables init on table by adding .js-dataTable-full class, functionality initialized in js/pages/be_tables_datatables.js -->

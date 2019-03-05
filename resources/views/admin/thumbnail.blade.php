@@ -28,15 +28,15 @@
                                         <td class="d-none d-sm-table-cell" style="height:150px;padding:0px;">
                                          @if(in_array($thumb->id, $tag_name))
                                          
-                                         @foreach($tag_name as $key=>$val)
+                                                @foreach($tag_name as $key=>$val)
 
-                                         @if($val==$thumb->id)
-                                          {{ $key }}, 
-                                         @endif
-                                         @endforeach
-                                         @else 
-                                        No tags defined 
-                                        @endif</td>
+                                                    @if($val==$thumb->id)
+                                                        {{ $key }}, 
+                                                    @endif
+                                    @endforeach
+                                            @else 
+                                                No tags defined 
+                                            @endif</td>
                                         <td class="text-center" style="height:150px;padding:0px;">
                                             <div class="btn-group">
                                                 <a  class="btn btn-sm btn-secondary" href="/edit/{{ $thumb->id}}">

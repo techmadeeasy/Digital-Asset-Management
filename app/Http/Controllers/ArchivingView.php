@@ -9,12 +9,14 @@ use App\Image;
 use App\Category;
 use App\Tag;
 use App\Tag_image;
+use App\Year;
 
 class ArchivingView extends Controller
 {
-    public function editonlist(){
+    public function editonlist($id){
         $editions = new Edition;
-        $list = $editions->all();
+        $list = $editions->where("year_id", $id)->get();
+        //return $list;
         return view("admin.archive", compact("list"));
     }
 
@@ -34,7 +36,11 @@ class ArchivingView extends Controller
                $tag_name[$tname->name] =  $img_id->id;
            }
         }
-        
+        //send a random dummy value if not tag has been set for a image
+
+        if(!isset($tag_name)){
+            $tag_name = [0.1,0.7];
+        }
         $album_name = Form::where("id", $id)->get();
         return view("admin.thumbnail", compact("get_thumb", "album_name", "tag_name"));
         //return $tag_name;

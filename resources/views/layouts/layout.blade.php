@@ -268,7 +268,7 @@
                                   </ul>
                                 </li>
                                 <li>
-                                    <a href="/archive"><i class="fa fa-download"></i><span class="sidebar-mini-hide">Archives</span></a>
+                                    <a href="/archive-admin/2"><i class="fa fa-download"></i><span class="sidebar-mini-hide">Archives</span></a>
                                 </li>
 								 <li>
                                     <a href="#"><i class="fa fa-download"></i><span class="sidebar-mini-hide">View Downloads</span></a>
