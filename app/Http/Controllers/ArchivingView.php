@@ -10,12 +10,14 @@ use App\Category;
 use App\Tag;
 use App\Tag_image;
 use App\Year;
+use Illuminate\Support\Facades\Auth;
+
 
 class ArchivingView extends Controller
 {
     public function editonlist($id){
         $editions = new Edition;
-        $list = $editions->where("year_id", $id)->get();
+        $list = $editions->whereYearId($id)->get();
         //return $list;
         return view("admin.archive", compact("list"));
     }
@@ -24,12 +26,12 @@ class ArchivingView extends Controller
         $album = new Form;
         $get_album = $album->where('edition_id', $id)->get();
         $editions = new Edition;
-        $edition = $editions->where('id', $id)->get();
-        return view("admin.archive-album", compact("get_album", "edition"));
+        $edition = $editions->whereId($id)->get();
+       return view("admin.archive-album", compact("get_album", "edition"));
     }
     public function thumbnailview($id){
         $thumbnail = new Image;
-        $get_thumb = $thumbnail->where("album_id", $id)->get();
+        $get_thumb = $thumbnail->whereAlbumId($id)->get();
         foreach($get_thumb as $img_id){
             $a=Image::find($img_id->id);
            foreach($a->tags as $tname){
@@ -41,7 +43,7 @@ class ArchivingView extends Controller
         if(!isset($tag_name)){
             $tag_name = [0.1,0.7];
         }
-        $album_name = Form::where("id", $id)->get();
+        $album_name = Form::whereId($id)->get();
         return view("admin.thumbnail", compact("get_thumb", "album_name", "tag_name"));
         //return $tag_name;
       
@@ -60,7 +62,7 @@ class ArchivingView extends Controller
     }
     public function edit($id){
         $category = Category::all();
-        $tag_img = Tag_image::where("image_id", $id)->get();
+        $tag_img = Tag_image::whereImageId($id)->get();
             if(count($tag_img)>=1){
                 foreach($tag_img as $ts){
                     $tname = Tag::find($ts->tag_id);
@@ -98,6 +100,9 @@ class ArchivingView extends Controller
 
    if (count($request->get("new-tag")>=1)){
        $new = Tag::create(["name"=>$request->get("new-tag"), "cat_id"=>$cat]);
+       //find the id of the added tags 
+       $newt = Tag::where("name", $request->get("new-tag"))->get();
+       $fills = $image->create(['tag_id'=>$newt[0]->id, 'image_id'=>$imgid]);
    }
     return redirect("/edit/$imgid");
     }

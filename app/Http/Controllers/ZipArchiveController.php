@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use ZipArchive;
 use App\Image;
+use Illuminate\Support\Facades\Auth;
+use File;
 
 
 ini_set('max_execution_time', 600);
@@ -12,8 +14,8 @@ class ZipArchiveController extends Controller
 {
     public function index($id)
     {
-     //  if($request->has('download')) {
-        	// Define Dir Folder
+            // Define Dir Folder
+            File::delete(public_path(), 'Album.zip');
         	$public_dir=public_path();
         	// Zip File Name
             $zipFileName = 'Album.zip';
@@ -53,12 +55,15 @@ foreach($albumss as $file) {
                 'Content-Type' => 'application/octet-stream',
             );
             $filetopath=$public_dir.'/'.$zipFileName;
+           
             // Create Download Response
             if(file_exists($filetopath)){
-                return response()->download($filetopath,$zipFileName,$headers);
+               return response()->download($filetopath,$zipFileName,$headers);
+               
             }
       // }
-     unlink($filetopath);
-        return view('createZip');
-    }
+    
+       // return back('createZip')
+    
+}
 }

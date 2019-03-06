@@ -58,6 +58,7 @@ Route::get('/delete/{id}/album', "ArchivingView@albumdelete");
 Route::get('/create-zip/{id}', "ZipArchiveController@index")->name('create-zip');
 Route::get('/edit/{id}', 'ArchivingView@edit');
 Route::post('/update-thumbnail', 'ArchivingView@update_thumbnail');
+Route::get('/user-list', 'UsersController@listuser');
 
 
 

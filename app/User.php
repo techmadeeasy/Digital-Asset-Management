@@ -46,4 +46,8 @@ class User extends Authenticatable
             {
   return null !== $this->roles()->where(‘name’, $role)->first();
                 }
+
+        public function rights(){
+            return $this->belongsTo("App\Role", "role_id");
+        }
 }

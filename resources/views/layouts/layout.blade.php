@@ -1,6 +1,10 @@
-@if ( Auth::check() && Auth::user()->role_id==2)
-<script>window.location = "/publication";</script>
-@endif
+ @if (Auth::check())
+            @unless (Auth::user()->role_id==1 || Auth::user()->role_id== 2)
+            <script>window.location = "/publication/2";</script>
+            @endunless
+    @else 
+        <script>window.location = "/login";</script>
+    @endif 
 <!DOCTYPE html>
 <html lang="{{ app()->getLocale() }}">
 <head>
@@ -274,6 +278,12 @@
                                     <a href="#"><i class="fa fa-download"></i><span class="sidebar-mini-hide">View Downloads</span></a>
                                   
                                 </li>
+                                @unless ( Auth::check() && Auth::user()->role_id==2)
+                                <li>
+                                    <a href="/user-list"><i class="fa fa-user"></i><span class="sidebar-mini-hide">Users</span></a>
+                                  
+                                </li>
+                               @endunless
                             </ul>
                         </div>
                         <!-- END Side Navigation -->

@@ -30,8 +30,11 @@ class LoginController extends Controller
          if($user->role_id==1){
              return redirect('/create_edition');
          }
+         elseif($user->role_id==2){
+             return redirect('/create_edition');
+         }
          else{
-             return redirect('/home');
+             return redirect('/publication/2');
          }
      }
    // protected $redirectTo = '/create_edition';

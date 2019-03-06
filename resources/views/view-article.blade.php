@@ -44,11 +44,26 @@
 <div class="clearfix"></div>
 <ul class='btn primary' style='font-size:13px;margin-top: 15px;padding-left: 12px;margin-left: 4px;display:none;'><a href='#'>View Album</a></ul>
 <ul class='btn primary' style='font-size:13px;margin-top: 15px;padding-left: 12px;margin-left: 4px;display:none;'><a href='#'>Featured Article</a></ul>
-<ul class='btn primary' style='font-size:13px;margin-top: 15px;padding-left: 12px;margin-left: 4px;'>
- <a href="/create-zip/{{$img->album_id}}">Downloads</a></ul>
+@if(Auth::check())
+  @if(Auth::user()->role_id==1 || Auth::user()->role_id==2)
+  <ul class='btn primary' style='font-size:13px;margin-top: 15px;padding-left: 12px;margin-left: 4px;'>
+ <a href="/create-zip/{{$img->album_id}}" id="download">Downloads</a></ul> 
+  @endif
+ @endif
 </div>
 
+<script>
+$("#download").click(function(){
+  $.ajax({
+    type: "GET",
+    url: '/create-zip/{{$img->album_id}}',
+    success: function(data){
+        alert(data);
+    }
+});
+})
 
+</script>
                    
       <style>
       /* Style the Image Used to Trigger the Modal */
