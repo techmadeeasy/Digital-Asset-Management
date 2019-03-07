@@ -88,9 +88,9 @@ class ArchivingView extends Controller
             $cat = $request->get("cat");
             $image = new Tag_image ;
             $imgid =$request->get("id");
+            $checkifimage = $image->where("image_id",  $imgid)->delete();
             if(!empty($request->get("hellow"))){
                 $taglist = $request->get("hellow");
-                $checkifimage = $image->where("image_id",  $imgid)->delete();
                     foreach($taglist as $tag){
             // $image->tag_id = $tag;
                         if($request->get("id")){
