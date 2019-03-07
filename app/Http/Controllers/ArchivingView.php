@@ -11,14 +11,17 @@ use App\Tag;
 use App\Tag_image;
 use App\Year;
 use Illuminate\Support\Facades\Auth;
+use Bugsnag\BugsnagLaravel\Facades\Bugsnag;
+use RuntimeException;
+
 
 
 class ArchivingView extends Controller
 {
+    
     public function editonlist($id){
         $editions = new Edition;
         $list = $editions->whereYearId($id)->get();
-        //return $list;
         return view("admin.archive", compact("list"));
     }
 
@@ -27,7 +30,7 @@ class ArchivingView extends Controller
         $get_album = $album->where('edition_id', $id)->get();
         $editions = new Edition;
         $edition = $editions->whereId($id)->get();
-       return view("admin.archive-album", compact("get_album", "edition"));
+        return view("admin.archive-album", compact("get_album", "edition"));
     }
     public function thumbnailview($id){
         $thumbnail = new Image;
@@ -38,6 +41,7 @@ class ArchivingView extends Controller
                $tag_name[$tname->name] =  $img_id->id;
            }
         }
+
         //send a random dummy value if not tag has been set for a image
 
         if(!isset($tag_name)){
@@ -45,8 +49,7 @@ class ArchivingView extends Controller
         }
         $album_name = Form::whereId($id)->get();
         return view("admin.thumbnail", compact("get_thumb", "album_name", "tag_name"));
-        //return $tag_name;
-      
+     
     }
     public function thumbnaildelete($id){
         $thumbnail = new Image;
@@ -82,29 +85,33 @@ class ArchivingView extends Controller
     }
     
     public function update_thumbnail(Request $request ){
-    $cat = $request->get("cat");
-    $image = new Tag_image ;
-    $taglist = $request->get("hellow");
-//   if(count($request->get("hellow")>1)){}
-    $imgid =$request->get("id");
-   // $img = $image->image_id = implode(",", $request->get("hellow"));
-   $checkifimage = $image->where("image_id",  $imgid)->delete();
-   foreach($taglist as $tag){
-   // $image->tag_id = $tag;
-    $image->image_id = $imgid;
-    $fills = $image->create(['tag_id'=>$tag, 'image_id'=>$imgid]);
-   // $image->save();
-   }
+            $cat = $request->get("cat");
+            $image = new Tag_image ;
+            $imgid =$request->get("id");
+            if(!empty($request->get("hellow"))){
+                $taglist = $request->get("hellow");
+                $checkifimage = $image->where("image_id",  $imgid)->delete();
+                    foreach($taglist as $tag){
+            // $image->tag_id = $tag;
+                        if($request->get("id")){
+                            $image->image_id = $imgid;
+                            $fills = $image->create(['tag_id'=>$tag, 'image_id'=>$imgid]);
+                        // $image->save();
+                            }
+                    }
+            }
+                //add new tag
 
-   //add new tag
-
-   if (count($request->get("new-tag")>=1)){
-       $new = Tag::create(["name"=>$request->get("new-tag"), "cat_id"=>$cat]);
-       //find the id of the added tags 
-       $newt = Tag::where("name", $request->get("new-tag"))->get();
-       $fills = $image->create(['tag_id'=>$newt[0]->id, 'image_id'=>$imgid]);
-   }
-    return redirect("/edit/$imgid");
-    }
-    
-}
+            if (!empty($request->get("new-tag"))){
+                $new = Tag::create(["name"=>$request->get("new-tag"), "cat_id"=>$cat]);
+                //find the id of the added tags 
+              
+                $newt = Tag::where("name", $request->get("new-tag"))->get();
+                $fills = $image->create(['tag_id'=>$newt[0]->id, 'image_id'=>$imgid]);
+            }
+            Bugsnag::notifyException(new RuntimeException("Test error"));
+            return redirect("/edit/$imgid");
+            
+                }
+                
+            }
