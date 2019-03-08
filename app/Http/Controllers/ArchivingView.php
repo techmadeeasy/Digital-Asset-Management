@@ -89,10 +89,12 @@ class ArchivingView extends Controller
             $image = new Tag_image ;
             $imgid =$request->get("id");
             $checkifimage = $image->where("image_id",  $imgid)->delete();
+
+            //check if new tag is set
+
             if(!empty($request->get("hellow"))){
                 $taglist = $request->get("hellow");
                     foreach($taglist as $tag){
-            // $image->tag_id = $tag;
                         if($request->get("id")){
                             $image->image_id = $imgid;
                             $fills = $image->create(['tag_id'=>$tag, 'image_id'=>$imgid]);
@@ -104,13 +106,14 @@ class ArchivingView extends Controller
 
             if (!empty($request->get("new-tag"))){
                 $new = Tag::create(["name"=>$request->get("new-tag"), "cat_id"=>$cat]);
+               
                 //find the id of the added tags 
               
                 $newt = Tag::where("name", $request->get("new-tag"))->get();
                 $fills = $image->create(['tag_id'=>$newt[0]->id, 'image_id'=>$imgid]);
             }
-            Bugsnag::notifyException(new RuntimeException("Test error"));
-            return redirect("/edit/$imgid");
+          return redirect("/edit/$imgid");
+    
             
                 }
                 

@@ -12,7 +12,7 @@
             <link rel="shortcut icon" href="assets/media/favicons/favicon.png">
             <link rel="stylesheet" id="css-main" href="{{ asset('assets/css/media/files.css') }}">
             <link rel="stylesheet" id="css-main" href="{{ asset('assets/css/media/style.css') }}">
-            <title>{{ config('app.name', 'Laravel') }}</title>
+            <title>{{ config('app.name', 'syndication-bazaar') }}</title>
             <!-- Styles -->
             
             <link href="{{ asset('css/app.css') }}" rel="stylesheet">
@@ -235,7 +235,7 @@
                  @endisset
                  @isset($edition)
                  <li class="list-inline-item">
-                     <a class="bread" href="/publication/{{$edition->id}}">{{ $edition->name}} </a><i class="fas fa-angle-right"></i>
+                     <a class="bread" href="/article/{{$edition->id}}">{{ $edition->name}} </a><i class="fas fa-angle-right"></i>
                  </li>
                  @endisset
                  @isset($albm)

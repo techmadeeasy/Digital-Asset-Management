@@ -13,7 +13,7 @@
                                     <tr>
                                         <th class="text-center">Preview</th>
                                         <th>Name</th>
-                                        <th class="d-none d-sm-table-cell">Publication</th>
+                                        <th class="d-none d-sm-table-cell">Description</th>
                                         <th class="d-none d-sm-table-cell" style="width: 15%;">Contributor</th>
                                         <th class="d-none d-sm-table-cell" style="width: 15%;">Date Created</th>
                                         <th class="d-none d-sm-table-cell" style="width: 15%;">Action</th>
