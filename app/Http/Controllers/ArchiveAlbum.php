@@ -35,8 +35,8 @@ class ArchiveAlbum extends Controller
         $images = Image::where("album_id", $id)->get();
         $album_thumb = Form::where("id", $id)->get();
         $albm = Edition::find($album_thumb[0]->edition_id);
-        $years = Year::find($albm->id);
-      return view("view-article", compact("images", "album_thumb","count", "albm"));
-       //return $years;
+        $years = Year::findorfail($albm->year_id);
+        return view("view-article", compact("images", "album_thumb","count", "albm", "years"));
+      // return $years;
     }
 }

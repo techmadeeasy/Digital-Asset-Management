@@ -230,7 +230,7 @@
                  </li>
                  @isset($years)
                  <li class="list-inline-item">
-                     <a class="bread" href="/publication/{{$years->id}}">{{ $years->name}} </a><i class="fas fa-angle-right"></i>
+                     <a class="bread" href="/publication/{{$years->id}}">{{ $years->name}}</a><i class="fas fa-angle-right"></i>
                  </li>
                  @endisset
                  @isset($edition)
