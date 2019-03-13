@@ -477,7 +477,7 @@
             <!-- END Footer -->
         </div>
         <!-- END Page Container -->
-      
+      @yield("modal")
         <!-- Codebase Core JS -->
         <script src="{{ asset('assets/js/core/jquery.min.js')}}"></script>
         <script src="{{ asset('assets/js/core/bootstrap.bundle.min.js')}}"></script>

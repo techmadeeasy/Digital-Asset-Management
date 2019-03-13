@@ -10,6 +10,7 @@ use App\Category;
 use App\Tag;
 use App\Tag_image;
 use App\Year;
+use App\Contributors;
 use Illuminate\Support\Facades\Auth;
 use Bugsnag\BugsnagLaravel\Facades\Bugsnag;
 use RuntimeException;
@@ -22,15 +23,17 @@ class ArchivingView extends Controller
     public function editonlist($id){
         $editions = new Edition;
         $list = $editions->whereYearId($id)->get();
-        return view("admin.archive", compact("list"));
+        $num = 1;
+        return view("admin.archive", compact("list", "num"));
     }
 
     public function featurelist($id){
         $album = new Form;
         $get_album = $album->where('edition_id', $id)->get();
         $editions = new Edition;
+         $num = 1;
         $edition = $editions->whereId($id)->get();
-        return view("admin.archive-album", compact("get_album", "edition"));
+        return view("admin.archive-album", compact("get_album", "edition", "num"));
     }
     public function thumbnailview($id){
         $thumbnail = new Image;
@@ -62,6 +65,24 @@ class ArchivingView extends Controller
         $delete = $albs ->find($id)->images()->delete();
         $albs->find($id)->delete();
         return back();
+    }
+    public function editalbum($id){
+
+        $album = Form::whereId($id)->get();
+        $contributors = Contributors::all();
+        return view("admin.edit-album", compact("album", "contributors"));
+    }
+
+    public function updateAlbum(Request $request){
+        $title = $request->get('name');
+        $desc = $request->get("desc");
+        $contr = $request->get('contrib');
+        $id = $request->get('id');
+        $album = Form::whereId($id);
+        $upd = $album->update(["names"=>$title, "description"=>$desc, "photographer"=>$contr]);
+        $message = "Album updated successfully";
+        return redirect("/edit/$id/album")->with(["message"=>$message]);
+
     }
     public function edit($id){
         $category = Category::all();

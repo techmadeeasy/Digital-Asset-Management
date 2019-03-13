@@ -11,6 +11,7 @@
                             <table class="table table-bordered table-striped table-vcenter js-dataTable-full">
                                 <thead>
                                     <tr>
+                                        <th>ID</th>
                                         <th class="text-center">Preview</th>
                                         <th>Name</th>
                                         <th class="d-none d-sm-table-cell">Description</th>
@@ -22,6 +23,7 @@
                                 <tbody>
                                 @foreach($get_album as $album)
                                     <tr>
+                                     <td class="font-w600">@php echo $num++ @endphp </td>
                                         <td class="text-center"><a href="/archive/{{$album->id}}/thumbnail">
                                         <img class='img-fluid img-thumb' src='https://dkmzc8tghb19s.cloudfront.net/fit-in/250x250/uploads/{{ $album->thumbnail }}' alt='editon cover page'>
                                         </a> </td>
@@ -33,7 +35,7 @@
                                         </td>
                                         <td class="text-center">
                                             <div class="btn-group">
-                                                <a  class="btn btn-sm btn-secondary" href="#">
+                                                <a  class="btn btn-sm btn-secondary" href="/edit/{{ $album->id}}/album">
                                                     <i class="fa fa-pencil"></i>
                                                 </a>
                                                 <a class="btn btn-sm btn-secondary" href="/delete/{{ $album->id}}/album">

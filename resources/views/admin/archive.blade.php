@@ -10,7 +10,7 @@
                             <!-- DataTables init on table by adding .js-dataTable-full class, functionality initialized in js/pages/be_tables_datatables.js -->
                             <table class="table table-bordered table-striped table-vcenter js-dataTable-full">
                                 <thead>
-                                    <tr>
+                                    <tr> <th class="text-center">ID</th>
                                         <th class="text-center">Preview</th>
                                         <th>Name</th>
                                         <th class="d-none d-sm-table-cell">Publication</th>
@@ -20,6 +20,7 @@
                                 <tbody>
                                 @foreach($list as $l)
                                     <tr>
+                                    <td class="font-w600">@php echo $num++ @endphp </td>
                                         <td class="text-center"><a href="/archive/{{ $l->id}}">
                                         <img class='img-fluid img-thumb' src='https://dkmzc8tghb19s.cloudfront.net/fit-in/250x250/uploads/{{ $l->thumbnail }}' alt='editon cover page'>
                                         </a> </td>
