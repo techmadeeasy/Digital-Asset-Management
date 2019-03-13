@@ -38,7 +38,7 @@
                                         </td>
                                             <td class="text-center">
                                             <div class="btn-group">
-                                                <a class="btn btn-sm btn-secondary" href="delete/{{$ls->id}}/user">
+                                                <a class="btn btn-sm btn-secondary" href="edit/{{$ls->id}}/user">
                                                     <i class="fa fa-pencil"></i>
                                                 </a>
                                                 <a class="btn btn-sm btn-secondary" href="delete/{{$ls->id}}/user">

@@ -3,57 +3,45 @@
 @section('content')
 @if(Auth::user()->role_id==1)
 <div class="block-content">
-
                             <div class="row justify-content-center py-20">
                                 <div class="col-xl-6">
-                                @if(session()->has('message' ))
-                        <p class="p-10 bg-success" style="color:#fff;">{{ session()->get("message") }}</p>
-                                @endif
                                     <!-- jQuery Validation (.js-validation-bootstrap class is initialized in js/pages/be_forms_validation.js) -->
                                     <!-- For more examples you can check out https://github.com/jzaefferer/jquery-validation -->
-                                    <form class="js-validation-bootstrap" action="{{ route('submit-user')}}" method="post" enctype="multipart/form-data">
+                                    <form class="js-validation-bootstrap" action="{{ route('update')}}" method="post" enctype="multipart/form-data">
                                     {{csrf_field()}}
                                         <div class="form-group row">
                                             <label class="col-lg-4 col-form-label" for="val-username">Full Name <span class="text-danger">*</span></label>
                                             <div class="col-lg-8">
-                                                <input type="text" class="form-control" id="val-name" name="name" placeholder="Enter a full name..">
+                                                <input type="text" class="form-control" id="val-name" name="name" placeholder="Enter a full name.." value="{{ $edit[0]->name}}">
                                             </div>
                                         </div>
                                         <div class="form-group row">
                                             <label class="col-lg-4 col-form-label" for="val-email">Email <span class="text-danger">*</span></label>
                                             <div class="col-lg-8">
-                                                <input type="text" class="form-control" id="val-email" name="email" placeholder="Your valid email..">
-                                            </div>
-                                        </div>
-                                        <div class="form-group row">
-                                            <label class="col-lg-4 col-form-label" for="val-password">Password <span class="text-danger">*</span></label>
-                                            <div class="col-lg-8">
-                                                <input type="password" class="form-control" id="val-password" name="password" placeholder="Choose a safe one..">
-                                            </div>
-                                        </div>
-                                        <div class="form-group row">
-                                            <label class="col-lg-4 col-form-label" for="val-confirm-password">Confirm Password <span class="text-danger">*</span></label>
-                                            <div class="col-lg-8">
-                                                <input type="password" class="form-control" id="val-confirm-password" name="password2" placeholder="..and confirm it!">
+                                                <input type="text" class="form-control" id="val-email" name="email" value="{{ $edit[0]->email}}" placeholder="Your valid email..">
+                                                 <input type="hidden" class="form-control" id="val-email" name="id" value="{{ $edit[0]->id}}" placeholder="Your valid email..">
                                             </div>
                                         </div>
                                         <div class="form-group row">
                                             <label class="col-lg-4 col-form-label" for="val-select2">Role <span class="text-danger">*</span></label>
                                             <div class="col-lg-8">
                                                 <select class="js-select2 form-control" id="val-select2" name="role" style="width: 100%;" data-placeholder="Choose one..">
-                                                    <option></option><!-- Required for data-placeholder attribute to work with Select2 plugin -->
-                                                    <option value="4">Client</option>
-                                                    <option value="3">Partner</option>
-                                                    <option value="2">Staff</option>
+                                                   
+                                                    <option value="{{$edit[0]->role_id}}">{{ $role[$edit[0]->role_id]}}</option>
+                                                    @foreach($role as $r=>$val)
+                                                        @if ($r!=$edit[0]->role_id)
+                                                      <option value="{{$r}}">{{$val}}</option>
+                                                    @endif
+                                                    @endforeach
                                                 </select>
                                             </div>
                                         </div>
                                         <div class="form-group row">
                                         
                                             <div class="col-lg-8 ml-auto">
-                                            @isset($message)
-                                          <p class="p-10 bg-success">{{$message}}</p>
-                                            @endisset
+                                            @if(session()->has('message'))
+                                          <p class="p-10 bg-success">{{session()->get('message')}}</p>
+                                            @endif
                                                 <button type="submit" class="btn btn-alt-primary">Submit</button>
                                             </div>
                                         </div>

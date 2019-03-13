@@ -39,12 +39,14 @@ class UsersController extends Controller
         $role = $request->get("role");
         $userTable = new User;
         $newuser =  $userTable->create(["name"=>$request->get('name'), "email"=>$request->get('email'), "password"=>$password, "role_id"=>$role]);
+     
         // $pivotTable = new Role_User;
         // $createduser = $userTable->whereEmail($request->get('email'))->get();
         // $newuseid = $createduser[0]->id;
         // $newuserrole = $pivotTable->create(["user_id"=>$newuseid, "role_id"=>$request->get('role')]);
         $message = "New user added successfully!";
-      return view("admin.add-new-user", compact("message"));
+    //  return view("admin.add-new-user", compact("message"));
+      return redirect('/add-new-user')->with(["message"=>$message]);
     }
    
 }
@@ -55,5 +57,31 @@ class UsersController extends Controller
      // return view("admin.user-list", compact("message"));   
      return redirect("/user-list")->with(["message"=>$message]);
             }
+            public function edituser($id){
+                $edit = User::whereId($id)->get();
+                $role = ["2"=>"staff", "3"=>"partner", "4"=>"client"];
+                return view("admin.edit-user", compact("edit", "role"));
+            }
 
+                public function updateuser(Request $request){
+        $validatedData = $request->validate([
+        'name' => 'required',
+        'email' => 'required',
+      //   'password' => Hash::make($request->newPassword)
+    ]);
+    
+        $password = Hash::make($request->get('password2'));
+        $role = $request->get("role");
+        $userTable = User::whereId($request->get('id'));
+        $newuser =  $userTable->update(["name"=>$request->get('name'), "email"=>$request->get('email'), "role_id"=>$role]);
+     
+        // $pivotTable = new Role_User;
+        // $createduser = $userTable->whereEmail($request->get('email'))->get();
+        // $newuseid = $createduser[0]->id;
+        // $newuserrole = $pivotTable->create(["user_id"=>$newuseid, "role_id"=>$request->get('role')]);
+        $message = "User info updated successfully!";
+      return redirect('/user-list')->with(["message"=>$message]);
+    // return view("admin.edit-user", compact("message"));
+
+}
 }

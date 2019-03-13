@@ -62,7 +62,8 @@ Route::get('/user-list', 'UsersController@listuser');
 Route::get('/add-new-user', 'UsersController@adduser')->name("add-new");
 Route::post('/submit-user', 'UsersController@submituser')->name('submit-user');
 Route::get('/delete/{id}/user', "UsersController@deleteuser");
-//Route::get('/edit/{id}/user', "UsersController@edituser");
+Route::get('/edit/{id}/user', "UsersController@edituser");
+Route::post('/update-user', 'UsersController@updateuser')->name('update');
 
 
 
