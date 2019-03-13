@@ -45,7 +45,6 @@ Route::get('/publication/{id}', 'ArchiveAlbum@edition')->name('publication');
 Route::get('view-article/{id}', 'ArchiveAlbum@articleview');
 Route::get('many', function(){
     $users = User::find(1);
-
     foreach($users->roles as $role){
         return $role->name;
     }
@@ -58,7 +57,12 @@ Route::get('/delete/{id}/album', "ArchivingView@albumdelete");
 Route::get('/create-zip/{id}', "ZipArchiveController@index")->name('create-zip');
 Route::get('/edit/{id}', 'ArchivingView@edit');
 Route::post('/update-thumbnail', 'ArchivingView@update_thumbnail');
+//user route 
 Route::get('/user-list', 'UsersController@listuser');
+Route::get('/add-new-user', 'UsersController@adduser')->name("add-new");
+Route::post('/submit-user', 'UsersController@submituser')->name('submit-user');
+Route::get('/delete/{id}/user', "UsersController@deleteuser");
+//Route::get('/edit/{id}/user', "UsersController@edituser");
 
 
 

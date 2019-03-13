@@ -272,7 +272,9 @@
   </button>
   <div class="dropdown-menu tops" aria-labelledby="dropdownMenu1">
   <a class="dropdown-item" href="{{ route('publication', 3)}}">View All</a>
+   <a class="dropdown-item" href="#">January</a>
     <a class="dropdown-item" href="#">February</a>
+     <a class="dropdown-item" href="#">March</a>
   </div>
 </div>
 <div class="btn-group dropright test">
@@ -283,16 +285,16 @@
       <a class="dropdown-item" href="{{ route('publication', 2)}}">View All</a>
     <a class="dropdown-item" href="#">January</a>
     <a class="dropdown-item" href="#">February</a>
-    <a class="dropdown-item" href="http://partners.syndication-bazaar.com/uploader/archive.php?link=March 2018">March</a>
- <a class="dropdown-item" href="http://partners.syndication-bazaar.com/uploader/archive.php?link=April 2018">April</a>
- <a class="dropdown-item" href="http://partners.syndication-bazaar.com/uploader/archive.php?link=May 2018">May</a>
- <a class="dropdown-item" href="http://partners.syndication-bazaar.com/uploader/archive.php?link=June 2018">June</a>
- <a class="dropdown-item" href="http://partners.syndication-bazaar.com/uploader/archive.php?link=July 2018">July</a>
- <a class="dropdown-item" href="http://partners.syndication-bazaar.com/uploader/archive.php?link=August 2018">August</a>
- <a class="dropdown-item" href="http://partners.syndication-bazaar.com/uploader/archive.php?link=September 2018">September</a>
-  <a class="dropdown-item" href="http://partners.syndication-bazaar.com/uploader/archive.php?link=October 2018">October</a>
-   <a class="dropdown-item" href="http://partners.syndication-bazaar.com/uploader/archive.php?link=November 2018">November</a>
-   <a class="dropdown-item" href="http://partners.syndication-bazaar.com/uploader/archive.php?link=December 2018">December</a>
+    <a class="dropdown-item" href="#">March</a>
+ <a class="dropdown-item" href="#">April</a>
+ <a class="dropdown-item" href="#">May</a>
+ <a class="dropdown-item" href="#">June</a>
+ <a class="dropdown-item" href="#">July</a>
+ <a class="dropdown-item" href="#">August</a>
+ <a class="dropdown-item" href="#">September</a>
+  <a class="dropdown-item" href="#">October</a>
+   <a class="dropdown-item" href="#">November</a>
+   <a class="dropdown-item" href="#">December</a>
   </div>
 </div>
 </div>

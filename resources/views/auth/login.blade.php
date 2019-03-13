@@ -52,9 +52,9 @@
                                         <button type="submit" class="btn btn-sm btn-hero btn-alt-primary"><em class="si si-login mr-10"></em> Sign In </button>
                                         <div>
                                         <div class="mt-30">
-                                            <a class="link-effect text-muted mr-10 mb-5 d-inline-block" href="{{ route('register') }}">
+                                            <!-- <a class="link-effect text-muted mr-10 mb-5 d-inline-block" href="{{ route('register') }}">
                                                 <i class="fa fa-plus mr-5"></i> Create Account
-                                            </a>
+                                            </a> -->
                                 <a class="link-effect text-muted mr-10 mb-5 d-inline-block" href="{{ route('password.request') }}">
                                                 <i class="fa fa-warning mr-5"></i> Forgot Password
                                             </a>

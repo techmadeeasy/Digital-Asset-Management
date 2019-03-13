@@ -496,8 +496,6 @@
                 <script src="{{ asset('assets/js/plugins/jquery-tags-input/jquery.tagsinput.min.js')}}"></script>
                 <script src="{{ asset('assets/js/plugins/jquery-auto-complete/jquery.auto-complete.min.js')}}"></script>
                 <script src="{{ asset('assets/js/plugins/masked-inputs/jquery.maskedinput.min.js')}}"></script>
-                <!-- <script src="assets/js/plugins/ion-rangeslider/js/ion.rangeSlider.min.js"></script>
-                <script src="assets/js/plugins/dropzonejs/min/dropzone.min.js"></script> -->
         <!-- Page JS Plugins -->
       
         @endguest
