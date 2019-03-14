@@ -23,7 +23,7 @@
 
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'syndication-bazaar') }}</title>
+    <title>Syndication-bazaar</title>
 
     <!-- Styles -->
     <link rel="shortcut icon" href="{{ asset('assets/media/favicons/favicon.png')}}">

@@ -12,7 +12,7 @@
             <link rel="shortcut icon" href="assets/media/favicons/favicon.png">
             <link rel="stylesheet" id="css-main" href="{{ asset('assets/css/media/files.css') }}">
             <link rel="stylesheet" id="css-main" href="{{ asset('assets/css/media/style.css') }}">
-            <title>{{ config('app.name', 'syndication-bazaar') }}</title>
+                   <title>Syndication-bazaar</title>
             <!-- Styles -->
             
             <link href="{{ asset('css/app.css') }}" rel="stylesheet">

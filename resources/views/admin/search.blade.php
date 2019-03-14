@@ -61,10 +61,10 @@
                                            @php $alb = explode("," , $albums[$srch->album_id]); echo $alb[0] @endphp
                                         </td>
                                         <td  class="d-none d-sm-table-cell">
-                                         
+                                             {{ $alb[1]}}
                                         </td>
                                          <td  class="d-none d-sm-table-cell">
-                                           {{ $alb[1]}}
+                                           {{ $alb[2]}}
                                         </td>
                                     </tr>
                                     @endforeach
