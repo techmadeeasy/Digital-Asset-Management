@@ -45,7 +45,7 @@
 <ul class='btn primary' style='font-size:13px;margin-top: 15px;padding-left: 12px;margin-left: 4px;display:none;'><a href='#'>View Album</a></ul>
 <ul class='btn primary' style='font-size:13px;margin-top: 15px;padding-left: 12px;margin-left: 4px;display:none;'><a href='#'>Featured Article</a></ul>
 @if(Auth::check())
-  @if(Auth::user()->role_id==1 || Auth::user()->role_id==2)
+  @if(Auth::user()->role_id==1 || Auth::user()->role_id==3)
   <ul class='btn primary' style='font-size:13px;margin-top: 15px;padding-left: 12px;margin-left: 4px;'>
  <a href="/create-zip/{{$img->album_id}}" id="download">Downloads</a></ul> 
   @endif

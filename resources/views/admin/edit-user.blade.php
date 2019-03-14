@@ -3,6 +3,7 @@
 @section('content')
 @if(Auth::user()->role_id==1)
 <div class="block-content">
+
                             <div class="row justify-content-center py-20">
                                 <div class="col-xl-6">
                                     <!-- jQuery Validation (.js-validation-bootstrap class is initialized in js/pages/be_forms_validation.js) -->

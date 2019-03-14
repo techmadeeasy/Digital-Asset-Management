@@ -66,6 +66,7 @@ Route::post('/submit-user', 'UsersController@submituser')->name('submit-user');
 Route::get('/delete/{id}/user', "UsersController@deleteuser");
 Route::get('/edit/{id}/user', "UsersController@edituser");
 Route::post('/update-user', 'UsersController@updateuser')->name('update');
+//route for contributors and billing 
 
-
-
+Route::get('/search', 'SearchAndContributors@search');
+Route::post('/submit_search', 'SearchAndContributors@search_submit');

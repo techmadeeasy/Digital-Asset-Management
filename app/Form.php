@@ -17,4 +17,7 @@ class Form extends Model
 
         return $this->hasMany("App\Image", "album_id");
     }
+    public function editions(){
+        return $this->belongsTo("App\Edition", "edition_id");
+    }
 }

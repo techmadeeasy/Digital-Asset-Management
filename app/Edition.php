@@ -9,7 +9,7 @@ class Edition extends Model
     protected $table= "editions";
 
     public function album(){
-        return $this->hasOne('App\Form');
+        return $this->hasMany('App\Form');
     }
     public function year(){
         return $this->belongsTo('App\Year');

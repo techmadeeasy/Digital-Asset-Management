@@ -23,7 +23,7 @@
 
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>{{ config('app.name', 'syndication-bazaar') }}</title>
 
     <!-- Styles -->
     <link rel="shortcut icon" href="{{ asset('assets/media/favicons/favicon.png')}}">
@@ -282,6 +282,9 @@
                                 <li>
                                     <a href="/user-list"><i class="fa fa-user"></i><span class="sidebar-mini-hide">Users</span></a>
                                   
+                                </li>
+                                 <li>
+                                    <a href="/search"><i class="fa fa-user"></i><span class="sidebar-mini-hide">Contributors</span></a>
                                 </li>
                                @endunless
                             </ul>

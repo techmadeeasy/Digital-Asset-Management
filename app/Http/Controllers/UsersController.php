@@ -72,7 +72,8 @@ class UsersController extends Controller
     
         $password = Hash::make($request->get('password2'));
         $role = $request->get("role");
-        $userTable = User::whereId($request->get('id'));
+        $id = $request->get('id');
+        $userTable = User::whereId($id);
         $newuser =  $userTable->update(["name"=>$request->get('name'), "email"=>$request->get('email'), "role_id"=>$role]);
      
         // $pivotTable = new Role_User;
@@ -80,7 +81,7 @@ class UsersController extends Controller
         // $newuseid = $createduser[0]->id;
         // $newuserrole = $pivotTable->create(["user_id"=>$newuseid, "role_id"=>$request->get('role')]);
         $message = "User info updated successfully!";
-      return redirect('/user-list')->with(["message"=>$message]);
+      return redirect("edit/$id/user")->with(["message"=>$message]);
     // return view("admin.edit-user", compact("message"));
 
 }
