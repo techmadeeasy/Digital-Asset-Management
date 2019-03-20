@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AddSoftDelete extends Migration
+class AddNewIdToContributors extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,8 @@ class AddSoftDelete extends Migration
      */
     public function up()
     {
-        Schema::table('album', function (Blueprint $table) {
-            $table->softDeletes();
+        Schema::table('contributors', function (Blueprint $table) {
+            $table->increments("id");
         });
     }
 
@@ -25,8 +25,8 @@ class AddSoftDelete extends Migration
      */
     public function down()
     {
-        Schema::table('album', function (Blueprint $table) {
-            //
+        Schema::table('contributors', function (Blueprint $table) {
+            $table->dropColumn("id");
         });
     }
 }

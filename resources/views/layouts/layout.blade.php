@@ -278,13 +278,18 @@
                                     <a href="#"><i class="fa fa-download"></i><span class="sidebar-mini-hide">View Downloads</span></a>
                                   
                                 </li>
-                                @unless ( Auth::check() && Auth::user()->role_id==2)
+                                @unless ( Auth::check() && Auth::user()->role_id==1)
                                 <li>
                                     <a href="/user-list"><i class="fa fa-user"></i><span class="sidebar-mini-hide">Users</span></a>
                                   
                                 </li>
+                                @endunless
+                                 @unless ( Auth::check() && Auth::user()->role_id==2)
                                  <li>
-                                    <a href="/search"><i class="fa fa-user"></i><span class="sidebar-mini-hide">Contributors</span></a>
+                                    <a href="/search"><i class="fa fa-user"></i><span class="sidebar-mini-hide">Search</span></a>
+                                </li>
+                                <li>
+                                    <a href="/contributors"><i class="fa fa-user"></i><span class="sidebar-mini-hide">Contributors</span></a>
                                 </li>
                                @endunless
                             </ul>

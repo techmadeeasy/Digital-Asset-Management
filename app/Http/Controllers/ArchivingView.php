@@ -68,9 +68,11 @@ class ArchivingView extends Controller
     }
     public function editalbum($id){
 
-        $album = Form::whereId($id)->get();
+        $album = Form::find($id)->get();
+        $this_contri = Form::find($id)->contributors()->get();
         $contributors = Contributors::all();
-        return view("admin.edit-album", compact("album", "contributors"));
+        return view("admin.edit-album", compact("album", "contributors", "this_contri"));
+        //return $album;
     }
 
     public function updateAlbum(Request $request){
@@ -79,7 +81,7 @@ class ArchivingView extends Controller
         $contr = $request->get('contrib');
         $id = $request->get('id');
         $album = Form::whereId($id);
-        $upd = $album->update(["names"=>$title, "description"=>$desc, "photographer"=>$contr]);
+        $upd = $album->update(["names"=>$title, "description"=>$desc, "photographer_id"=>$contr]);
         $message = "Album updated successfully";
         return redirect("/edit/$id/album")->with(["message"=>$message]);
 

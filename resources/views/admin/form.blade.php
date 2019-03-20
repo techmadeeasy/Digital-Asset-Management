@@ -70,7 +70,7 @@
           <label for="files">Photographer</label><select id="example-select2-multi" class="js-select2 form-control form-control-lg" name="albumphoto">
               <option value="none"></option>
           @foreach ($listcon as $con)
- <option value="{{$con->name}}">{{$con->name}} </option>  
+ <option value="{{$con->id}}">{{$con->name}} </option>  
        @endforeach
           </select>
         </div>

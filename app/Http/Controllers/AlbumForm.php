@@ -60,7 +60,7 @@ class AlbumForm extends Controller
                     </script>";
                     };
                     $albumtable->edition_id = $edition[0]->id;
-                    $albumtable->photographer = $request->get('albumphoto');
+                    $albumtable->photographer_id = $request->get('albumphoto');
                     $albumtable->description = $request->get('overview');
                         //$albumtable->writer = "thewroro";
                     $albumtable->thumbnail = $filepath;

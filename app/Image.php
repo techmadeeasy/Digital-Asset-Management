@@ -17,6 +17,9 @@ class Image extends Model
     public function tags(){
         return $this->belongsToMany("App\Tag");
     }
+    public function albums(){
+        return $this->belongsTo("App\Form", "album_id");
+    }
 }
 
 

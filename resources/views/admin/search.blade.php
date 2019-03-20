@@ -1,7 +1,7 @@
 @extends('layouts.layout')
 
 @section('content')
-@if(Auth::user()->role_id==1)
+@if(Auth::user()->role_id==1 || Auth::user()->role_id==2)
 <div class="block-content">
 
                             <div class="row justify-content-center py-20">
@@ -27,7 +27,7 @@
                             </div>
 
                         </div>
-                        @isset($search)
+                        @isset($albums)
 <div class="row justify-content-center py-20">
                                 <div class="col-xl-9">
                         <div class="block">
@@ -52,19 +52,21 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                @foreach ($search as $srch)
+                                @foreach ($albums as $srch)
+                                 @php $alb = explode("," , $srch); @endphp
+                                
                                     <tr>
                                         <th class="text-center" scope="row">3</th>
-                                        <td><img src="#" alt="hello.jpg" srcset=""></td>
-                                         <td class="d-none d-sm-table-cell">{{ $srch->filename}}</td>
+                                        <td><img  src="https://dkmzc8tghb19s.cloudfront.net/fit-in/600x600/uploads/{{ $alb[0]}}" alt="placeholder" class="img-fluid" style="width:100%;max-width:100px"></td>
+                                         <td class="d-none d-sm-table-cell">{{ $alb[1]}}</td>
                                         <td  class="d-none d-sm-table-cell">
-                                           @php $alb = explode("," , $albums[$srch->album_id]); echo $alb[0] @endphp
+                                          {{$alb[2]}}
                                         </td>
                                         <td  class="d-none d-sm-table-cell">
-                                             {{ $alb[1]}}
+                                             {{ $alb[3]}}
                                         </td>
                                          <td  class="d-none d-sm-table-cell">
-                                           {{ $alb[2]}}
+                                          <a href="/contrib/{{ $alb[5]}}" >{{ $alb[4]}}</a>
                                         </td>
                                     </tr>
                                     @endforeach
@@ -85,6 +87,7 @@
                         }
                     </style>
 @else
+
 <script>
 window.location = "/create_edition"
 </script>  

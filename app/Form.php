@@ -20,4 +20,7 @@ class Form extends Model
     public function editions(){
         return $this->belongsTo("App\Edition", "edition_id");
     }
+    public function contributors(){
+        return $this->belongsTo("App\Contributors", "photographer_id");
+    }
 }

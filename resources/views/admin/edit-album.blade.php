@@ -29,12 +29,22 @@
               <div class="form-group row">
                   <div class="col-12">
                       <label class="col-form-label">Contributors</label><select class=" form-control" name="contrib"> 
-                     <option value="{{ $album[0]->photographer }}"> {{ $album[0]->photographer }} </option>
+                   @if(count($this_contri)>=1)
+                     <option value="{{ $this_contri[0]->id }}"> {{ $this_contri[0]->name }} </option>\
+                    @else
+                             @foreach ($contributors as $contrib)
+                              <option value=""> </option>
+                           <option value="{{ $contrib->id}}"> {{ $contrib->name}}</option>
+                        @endforeach
+                     @endif
+
+                     @if(count($this_contri)>=1)
                         @foreach ($contributors as $contrib)
-                            @if ($contrib->name != $album[0]->photographer)
-                           <option value="{{ $contrib->name}}"> {{ $contrib->name}}</option>
+                            @if ($contrib->id != $this_contri[0]->id)
+                           <option value="{{ $contrib->id}}"> {{ $contrib->name}}</option>
                              @endif
                         @endforeach
+                    @endif
                             </select>
                     </div>
                 </div> 

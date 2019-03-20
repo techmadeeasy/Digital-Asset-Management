@@ -4,9 +4,9 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Contributors extends Model
+class Homeowner extends Model
 {
     public function albums(){
-        return $this->hasMany("App\Form", "photographer_id");
+        return $this->hasOne("App/Form");
     }
 }
