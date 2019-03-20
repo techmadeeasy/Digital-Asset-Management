@@ -70,7 +70,7 @@ class ArchivingView extends Controller
 
         $album = Form::find($id)->get();
         $this_contri = Form::find($id)->contributors()->get();
-        $contributors = Contributors::all();
+        $contributors = Contributors::all()->OrderBy();
         return view("admin.edit-album", compact("album", "contributors", "this_contri"));
         //return $album;
     }

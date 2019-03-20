@@ -32,8 +32,8 @@
                    @if(count($this_contri)>=1)
                      <option value="{{ $this_contri[0]->id }}"> {{ $this_contri[0]->name }} </option>\
                     @else
-                             @foreach ($contributors as $contrib)
                               <option value=""> </option>
+                             @foreach ($contributors as $contrib)
                            <option value="{{ $contrib->id}}"> {{ $contrib->name}}</option>
                         @endforeach
                      @endif
