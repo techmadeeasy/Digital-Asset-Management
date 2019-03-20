@@ -278,12 +278,12 @@
                                     <a href="#"><i class="fa fa-download"></i><span class="sidebar-mini-hide">View Downloads</span></a>
                                   
                                 </li>
-                                @unless ( Auth::check() && Auth::user()->role_id==1)
+                                @if ( Auth::check() && Auth::user()->role_id==1)
                                 <li>
                                     <a href="/user-list"><i class="fa fa-user"></i><span class="sidebar-mini-hide">Users</span></a>
                                   
                                 </li>
-                                @endunless
+                                @endif
                                  @unless ( Auth::check() && Auth::user()->role_id==2)
                                  <li>
                                     <a href="/search"><i class="fa fa-user"></i><span class="sidebar-mini-hide">Search</span></a>
