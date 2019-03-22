@@ -44,9 +44,9 @@ class ArchivingView extends Controller
         }
         $editions = new Edition;
          $num = 1;
-        $edition = $editions->find($id)->get();
-      return view("admin.archive-album", compact("get_album", "edition", "num", "arrays"));
-   // return $arrays;
+        $edition = $editions->whereId($id)->get();
+     // return view("admin.archive-album", compact("get_album", "edition", "num", "arrays"));
+  return $edition;
     }
     public function thumbnailview($id){
         $thumbnail = new Image;
@@ -84,8 +84,8 @@ class ArchivingView extends Controller
         $album = Form::whereId($id)->get();
         $this_contri = Form::find($id)->contributors()->get();
         $contributors = Contributors::all();
-       return view("admin.edit-album", compact("album", "contributors", "this_contri"));
-      // return $album;
+      return view("admin.edit-album", compact("album", "contributors", "this_contri"));
+     // return $this_contri;
     }
 
     public function updateAlbum(Request $request){
@@ -104,7 +104,7 @@ class ArchivingView extends Controller
         $tag_img = Tag_image::whereImageId($id)->get();
             if(count($tag_img)>=1){
                 foreach($tag_img as $ts){
-                    $tname = Tag::find($ts->tag_id);
+                    $tname = Tag::whereId($ts->tag_id);
                     $list[] = $tname->id;
                 }
             }
@@ -114,10 +114,9 @@ class ArchivingView extends Controller
             }
         $tags = Tag::all();
         $thumbnail = new Image;
-      //  $ts =$thumbnail->find($id)->image();
         $get_thumb = $thumbnail->where("id", $id)->get();
-       return view("admin.edit-thumbnail", compact("get_thumb", "category", "tags", "list"));
-
+    return view("admin.edit-thumbnail", compact("get_thumb", "category", "tags", "list"));
+      
     }
     
     public function update_thumbnail(Request $request ){
