@@ -33,13 +33,20 @@ class ArchivingView extends Controller
         //find contributors
         foreach ($get_album as $albums){
             $con = $album->find($albums->id)->contributors()->get();
-          $arrays[$con[0]->id] = $con[0]->name;
+            if(count($con)!=0){
+               $arrays[$con[0]->id] = $con[0]->name;
+            //    dd($con[0]->name);
+            }
+            else{
+                 $arrays[0] = "Unkown Photographer";
+            }
+
         }
         $editions = new Edition;
          $num = 1;
         $edition = $editions->find($id)->get();
-        return view("admin.archive-album", compact("get_album", "edition", "num", "arrays"));
-     // return $array[$get_album[0]->photographer_id];
+      return view("admin.archive-album", compact("get_album", "edition", "num", "arrays"));
+   // return $arrays;
     }
     public function thumbnailview($id){
         $thumbnail = new Image;

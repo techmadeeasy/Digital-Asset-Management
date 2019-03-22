@@ -29,7 +29,11 @@
                                         </a> </td>
                                         <td class="font-w600">{{ $album->names}}</td>
                                         <td class="d-none d-sm-table-cell">{{ $album->description}}</td>
+                                        @if (array_key_exists($album->photographer_id, $arrays))
                                         <td class="d-none d-sm-table-cell">{{ $arrays[$album->photographer_id] }}</td>
+                                        @else 
+                                          <td class="d-none d-sm-table-cell">Unkown Photographer</td>
+                                        @endif
                                         <td class="d-none d-sm-table-cell">
                                             <span class="badge ">{{ $album->created_at}}</span>
                                         </td>
