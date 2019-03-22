@@ -13,7 +13,7 @@
                         <p>Photographer: <strong>{{ $contribname}}</strong></p>
                         <!-- <p>Copyright: <strong>© syndication-bazaar</strong></p> 
                         <h5 class="mt_10">Rights</h5> -->
-                    <p> <a style="color:#0bb4b1;" href="terms.php">Licence Agreements</a></p>
+                    <!-- <p> <a style="color:#0bb4b1;" href="terms.php">Licence Agreements</a></p> -->
                 </div> 
                 <div class="col-md-4">  
                
