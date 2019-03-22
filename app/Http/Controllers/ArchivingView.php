@@ -45,8 +45,8 @@ class ArchivingView extends Controller
         $editions = new Edition;
          $num = 1;
         $edition = $editions->whereId($id)->get();
-     // return view("admin.archive-album", compact("get_album", "edition", "num", "arrays"));
-  return $edition;
+   return view("admin.archive-album", compact("get_album", "edition", "num", "arrays"));
+  
     }
     public function thumbnailview($id){
         $thumbnail = new Image;
