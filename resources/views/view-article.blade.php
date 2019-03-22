@@ -3,6 +3,7 @@
 @section('content')
                 <div class="col-md-2">
                 @foreach($album_thumb as $imf)
+                @php $id=$imf->id; @endphp
                         <h2 style="font-family: 'Open Sans', sans-serif; font-weight: 100;"> {{$imf->names}} </h2>
                         <h5>Content</h5>
                         <p style="margin:none;"> Number of images: {{ count($images)}}</p>
@@ -47,7 +48,7 @@
 @if(Auth::check())
   @if(Auth::user()->role_id==1 || Auth::user()->role_id==3)
   <ul class='btn primary' style='font-size:13px;margin-top: 15px;padding-left: 12px;margin-left: 4px;'>
- <a href="/create-zip/{{$img->album_id}}" id="download">Downloads</a></ul> 
+ <a href="/create-zip/{{$id}}" id="download">Downloads</a></ul> 
   @endif
  @endif
 </div>
@@ -56,7 +57,7 @@
 $("#download").click(function(){
   $.ajax({
     type: "GET",
-    url: '/create-zip/{{$img->album_id}}',
+    url: '/create-zip/{{$id}}',
     success: function(data){
         alert(data);
     }
