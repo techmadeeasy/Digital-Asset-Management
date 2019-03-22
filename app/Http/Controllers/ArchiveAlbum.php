@@ -32,11 +32,20 @@ class ArchiveAlbum extends Controller
         $count = 0;
         $pick_bread = 'App\Edition';
        // $album_name = Form::where("id", )
+    
         $images = Image::where("album_id", $id)->get();
         $album_thumb = Form::whereId($id)->get();
+        $contrib = Form::find($id)->contributors()->get()->first();
+       if(count($contrib)>=1){
+            $contribname = $contrib->name;
+       }
+       else{
+            $contribname = " ";
+       };
         $albm = Edition::whereId($album_thumb[0]->edition_id)->get()->first();
        $years = Year::whereId($albm->year_id)->get()->first();;
-    return view("view-article", compact("images", "album_thumb","count", "albm", "years"));
-   // return  $album_thumb;
+        return view("view-article", compact("images", "album_thumb","count", "albm", "years", "contribname"));
+
+      
     }
 }
