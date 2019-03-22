@@ -29,7 +29,7 @@
                                         </a> </td>
                                         <td class="font-w600">{{ $album->names}}</td>
                                         <td class="d-none d-sm-table-cell">{{ $album->description}}</td>
-                                        <td class="d-none d-sm-table-cell">{{ $album->photographer}}</td>
+                                        <td class="d-none d-sm-table-cell">{{ $arrays[$album->photographer_id] }}</td>
                                         <td class="d-none d-sm-table-cell">
                                             <span class="badge ">{{ $album->created_at}}</span>
                                         </td>

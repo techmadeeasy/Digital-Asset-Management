@@ -30,10 +30,16 @@ class ArchivingView extends Controller
     public function featurelist($id){
         $album = new Form;
         $get_album = $album->where('edition_id', $id)->get();
+        //find contributors
+        foreach ($get_album as $albums){
+            $con = $album->find($albums->id)->contributors()->get();
+          $arrays[$con[0]->id] = $con[0]->name;
+        }
         $editions = new Edition;
          $num = 1;
-        $edition = $editions->whereId($id)->get();
-        return view("admin.archive-album", compact("get_album", "edition", "num"));
+        $edition = $editions->find($id)->get();
+        return view("admin.archive-album", compact("get_album", "edition", "num", "arrays"));
+     // return $array[$get_album[0]->photographer_id];
     }
     public function thumbnailview($id){
         $thumbnail = new Image;
