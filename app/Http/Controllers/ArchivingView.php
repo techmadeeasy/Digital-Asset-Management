@@ -101,7 +101,8 @@ class ArchivingView extends Controller
         $request->validate([
             "featPhoto"=>"mimes:jpeg"
         ]);
-       if($request->hasFile("featphoto")){
+
+       if($request->hasFile("featPhoto")){
            $file = $request->file("featPhoto");
            $fileName = $file->getClientOriginalName();
            $s3 = Storage::disk("s3");
