@@ -23,7 +23,7 @@ class ArchivingView extends Controller
     
     public function editonlist($id){
         $editions = new Edition;
-        $list = $editions->whereYearId($id)->get();
+        $list = $editions->whereYearId($id)->get()->sortBy("month");
         $num = 1;
         return view("admin.archive", compact("list", "num"));
     }
