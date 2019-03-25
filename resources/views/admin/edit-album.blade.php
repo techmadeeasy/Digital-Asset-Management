@@ -55,7 +55,7 @@
                                      <input type="hidden" class="form-control" id="{{ $album[0]->id}}" name="id" value="{{ $album[0]->id}}" placeholder="Your valid email..">
                             </div>
                      </div>
-                      <div class="form-group row">
+            <div class="form-group row">
                    <div class="col-12">
                         <label class="col-form-label" for="val-email">Description</label>
                         </div>
@@ -63,6 +63,22 @@
                                   <textarea name="desc" id="desc" class="form-control" cols="40" >{{ $album[0]->description}}</textarea>
                             </div>
                      </div>
+            @if ($errors->any())
+                <div class="alert alert-danger">
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
+
+            <div class="form-group row">
+                <label class="col-12" for="example-file-input">Feature Image</label>
+                <div class="col-12">
+                    <input type="file" id="featPhoto" name="featPhoto">
+                </div>
+            </div>
                      <div style="padding-left:40%">
                                         <button type="submit" class="btn btn-primary" style="margin-top:10px;">Update</button>
                                         </div>

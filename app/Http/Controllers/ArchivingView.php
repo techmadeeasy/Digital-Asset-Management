@@ -14,6 +14,7 @@ use App\Contributors;
 use Illuminate\Support\Facades\Auth;
 use Bugsnag\BugsnagLaravel\Facades\Bugsnag;
 use RuntimeException;
+use Illuminate\Support\Facades\Storage;
 
 
 
@@ -95,8 +96,21 @@ class ArchivingView extends Controller
         $id = $request->get('id');
         $album = Form::whereId($id);
         $upd = $album->update(["names"=>$title, "description"=>$desc, "photographer_id"=>$contr]);
+
+        //update image
+        $request->validate([
+            "featPhoto"=>"mimes:jpeg"
+        ]);
+       if($request->hasFile("featphoto")){
+           $file = $request->file("featPhoto");
+           $fileName = $file->getClientOriginalName();
+           $s3 = Storage::disk("s3");
+           $save = $s3->putFileAs("uploads/" . date("Y-m-d"), $file, $fileName);
+           $updName = $album->update(["thumbnail"=>date("Y-m-d") . "/" . $fileName]);
+       }
         $message = "Album updated successfully";
         return redirect("/edit/$id/album")->with(["message"=>$message]);
+
 
     }
     public function edit($id){
@@ -148,8 +162,6 @@ class ArchivingView extends Controller
                 $fills = $image->create(['tag_id'=>$newt[0]->id, 'image_id'=>$imgid]);
             }
           return redirect("/edit/$imgid");
-    
-            
                 }
                 
             }
