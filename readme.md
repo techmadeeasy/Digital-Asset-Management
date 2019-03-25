@@ -21,6 +21,6 @@
 
 # More details 
 
-More details to come on  [Jerry Boy Blog](https://#)
+More details to come or get in touch  [Jerry Boy](djerryboy2@gmail.com)
 
 

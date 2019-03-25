@@ -1,6 +1,6 @@
 # The MIT License (MIT)
 
-Copyright (c) 2017 Martin Kluska <martin@kluska.cz>
+Copyright (c) 2019 Jerry Boy <djerryboy2@gmail.com>
 
 > Permission is hereby granted, free of charge, to any person obtaining a copy
 > of this software and associated documentation files (the "Software"), to deal

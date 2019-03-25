@@ -137,7 +137,6 @@ class UploadController extends Controller
         $imagetb->filename= $filename;
         $imagetb->album_id = Session::get("album_id");
         $imagetb->category = Session::get("cat");
-        $imagetb->album = Session::get("album");
         $imagetb->edition = Session::get("edition");
         $imagetb->thumbnail = date("Y-m-d") . "/" . $filename;
         $imagetb->save();
