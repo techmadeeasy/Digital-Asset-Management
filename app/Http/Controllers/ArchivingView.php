@@ -47,7 +47,6 @@ class ArchivingView extends Controller
          $num = 1;
         $edition = $editions->whereId($id)->get();
    return view("admin.archive-album", compact("get_album", "edition", "num", "arrays"));
-  
     }
     public function thumbnailview($id){
         $thumbnail = new Image;
@@ -111,7 +110,6 @@ class ArchivingView extends Controller
        }
         $message = "Album updated successfully";
         return redirect("/edit/$id/album")->with(["message"=>$message]);
-
 
     }
     public function edit($id){

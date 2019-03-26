@@ -10,10 +10,9 @@ use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 class Controller extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
-
-//  function  __construct(){
-// $value = "this is ";
-// global $value;
-//   //  return view("layouts.frontend", compact("value"));
+//protected $value = "the";
+//  public function  __construct(){
+//      $value = "hey";
+//      return $value;
 //  }
 }
