@@ -22,20 +22,19 @@
                                 @foreach($get_thumb as $thumb)
                                     <tr>
                                         <td class="text-center" style="height:150px;padding:0px;">
-                                        <img class='img-fluid img-thumb' src='https://dkmzc8tghb19s.cloudfront.net/fit-in/150x150/uploads/{{ $thumb->thumbnail }}' alt='editon cover page'>
+                                        <img class='img-fluid img-thumb' src='https://dkmzc8tghb19s.cloudfront.net/fit-in/150x150/uploads/{{ $thumb->thumbnail }}' alt='thumbnail'>
                                         </td>
                                         <td class="font-w600" style="height:150px;padding:0px;">{{ $thumb->category }}</td>
                                         <td class="d-none d-sm-table-cell" style="height:150px;padding:0px;">
-                                         @if(in_array($thumb->id, $tag_name))
-                                         
-                                                @foreach($tag_name as $key=>$val)
+                                         @if(array_key_exists($thumb->id, $tag_name))
+                                             @if(count($tag_name[$thumb->id])!=0)
+                                                    @foreach($tag_name[$thumb->id] as $key=>$val)
+                                                          <a href="#">{{ $val->name }}</a>,
+                                                    @endforeach
+                                                    @else
+                                                        No tags defined
+                                                        @endif
 
-                                                    @if($val==$thumb->id)
-                                                        {{ $key }}, 
-                                                    @endif
-                                    @endforeach
-                                            @else 
-                                                No tags defined 
                                             @endif</td>
                                         <td class="text-center" style="height:150px;padding:0px;">
                                             <div class="btn-group">

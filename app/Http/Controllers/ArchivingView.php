@@ -52,19 +52,17 @@ class ArchivingView extends Controller
         $thumbnail = new Image;
         $get_thumb = $thumbnail->whereAlbumId($id)->get();
         foreach($get_thumb as $img_id){
-            $a=Image::find($img_id->id);
-           foreach($a->tags as $tname){
-               $tag_name[$tname->name] =  $img_id->id;
-           }
-        }
+            $a=Image::findorFail($img_id->id);
+            $tags = $a->tags()->get();
+            $tag_name[$img_id->id] = $tags;
 
-        //send a random dummy value if not tag has been set for a image
+        }
 
         if(!isset($tag_name)){
             $tag_name = [0.1,0.7];
         }
         $album_name = Form::whereId($id)->get();
-        return view("admin.thumbnail", compact("get_thumb", "album_name", "tag_name"));
+      return view("admin.thumbnail", compact("get_thumb", "album_name", "tag_name"));
      
     }
     public function thumbnaildelete($id){
@@ -114,11 +112,11 @@ class ArchivingView extends Controller
     }
     public function edit($id){
         $category = Category::all();
-        $tag_img = Tag_image::whereImageId($id)->get();
+        $tag_img = Image::findorFail($id)->tags()->get();
+        //return $tag_img;
             if(count($tag_img)>=1){
                 foreach($tag_img as $ts){
-                    $tname = Tag::whereId($ts->tag_id)->first();
-                    $list[] = $tname->id;
+                    $list[] = $ts->id;
                 }
             }
             else{
@@ -136,7 +134,8 @@ class ArchivingView extends Controller
             $cat = $request->get("cat");
             $image = new Tag_image ;
             $imgid =$request->get("id");
-            $checkifimage = $image->where("image_id",  $imgid)->delete();
+            $checkifimage = Image::findorFail($imgid);
+            $del = $checkifimage->tags()->detach();
 
             //check if new tag is set
 
