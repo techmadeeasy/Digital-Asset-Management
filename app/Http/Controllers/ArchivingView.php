@@ -117,7 +117,7 @@ class ArchivingView extends Controller
         $tag_img = Tag_image::whereImageId($id)->get();
             if(count($tag_img)>=1){
                 foreach($tag_img as $ts){
-                    $tname = Tag::whereId($ts->tag_id);
+                    $tname = Tag::whereId($ts->tag_id)->first();
                     $list[] = $tname->id;
                 }
             }

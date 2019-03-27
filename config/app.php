@@ -162,6 +162,8 @@ return [
         Illuminate\Translation\TranslationServiceProvider::class,
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
+        Harimayco\Menu\MenuServiceProvider::class,
+        'Menu' => Harimayco\Menu\Facades\Menu::class,
 
         /*
          * Package Service Providers...
