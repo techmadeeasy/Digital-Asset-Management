@@ -44,7 +44,9 @@
                                     </tr>
                                     @endforeach
                                 </tbody>
+
                             </table>
+                            {{ $contributors->links() }}
                         </div>
                     </div>
                     </div>

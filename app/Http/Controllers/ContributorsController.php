@@ -17,7 +17,7 @@ class ContributorsController extends Controller
     }
 
     public function listAll(){
-        $contributors = Contributors::all();
+        $contributors = Contributors::paginate(1);
         $counter = 1;
         return view("admin.contrib-list", compact("contributors", "counter"));
     }
