@@ -51,14 +51,14 @@
                                         </div>
                                     </div>
                                     <div class="py-20 text-center">
-                                         <div class="font-size-h2 font-w700 mb-0" data-toggle="countTo" data-to="{{count($list)}}">0</div>
+                                         <div class="font-size-h2 font-w700 mb-0" data-toggle="countTo" data-to="{{$list}}">0</div>
                                         <div class="font-size-sm font-w600 text-uppercase text-muted">Features</div>
                                     </div>
                                 </div>
                             </a>
                         </div>
                         <!-- END Orders -->
-
+                            @php $single_val =explode(",", $order_info);  @endphp
                         <!-- In Cart -->
                         <div class="col-md-6 col-xl-3">
                             <a class="block block-rounded block-link-shadow" href="javascript:void(0)">
@@ -69,8 +69,8 @@
                                         </div>
                                     </div>
                                     <div class="py-20 text-center">
-                                        <div class="font-size-h2 font-w700 mb-0" data-toggle="countTo" data-to="3">0</div>
-                                        <div class="font-size-sm font-w600 text-uppercase text-muted">In Cart</div>
+                                        <div class="font-size-h2 font-w700 mb-0" data-toggle="countTo" data-to="{{ $single_val[2] }}">0</div>
+                                        <div class="font-size-sm font-w600 text-uppercase text-muted">Images Sold</div>
                                     </div>
                                 </div>
                             </a>
@@ -88,9 +88,9 @@
                                     </div>
                                     <div class="py-20 text-center">
                                         <div class="font-size-h2 font-w700 mb-0 text-info">
-                                            <i class="fa fa-pencil"></i>
+                                          R {{ $single_val[0] }}
                                         </div>
-                                        <div class="font-size-sm font-w600 text-uppercase text-muted">Edit Customer</div>
+                                        <div class="font-size-sm font-w600 text-uppercase text-muted">Total Amount</div>
                                     </div>
                                 </div>
                             </a>
@@ -108,9 +108,9 @@
                                     </div>
                                     <div class="py-20 text-center">
                                         <div class="font-size-h2 font-w700 mb-0 text-danger">
-                                            <i class="fa fa-times"></i>
+                                            R {{ $single_val[1] }}
                                         </div>
-                                        <div class="font-size-sm font-w600 text-uppercase text-muted">Remove Customer</div>
+                                        <div class="font-size-sm font-w600 text-uppercase text-muted">Commission Due</div>
                                     </div>
                                 </div>
                             </a>
@@ -163,7 +163,7 @@
                     <!-- END Addresses -->
 
                     <!-- Cart -->
-                    <h2 class="content-heading">Cart</h2>
+                    <h2 class="content-heading">Image Sold</h2>
                     <div class="block block-rounded">
                         <div class="block-content">
                             <!-- Products Table -->
@@ -172,70 +172,50 @@
                                     <tr>
                                         <th style="width: 100px;">ID</th>
                                         <th class="d-none d-sm-table-cell" style="width: 120px;">Status</th>
-                                        <th class="d-none d-sm-table-cell" style="width: 120px;">Submitted</th>
-                                        <th>Product</th>
-                                        <th class="d-none d-md-table-cell">Category</th>
-                                        <th class="text-right">Value</th>
+                                        <th class="d-none d-sm-table-cell" style="width: 120px;">Sold</th>
+                                        <th>Image</th>
+                                        <th class="d-none d-md-table-cell">Feature</th>
+                                        <th class="text-right">Price</th>
                                     </tr>
                                 </thead>
                                 <tbody>
+                                @foreach($albums as $album)
+                                    @if(array_key_exists($album->id, $album_id))
+
+                                    @endif
+                                @endforeach
+                                @foreach($orders as $ord)
+
                                     <tr>
                                         <td>
-                                            <a class="font-w600" href="be_pages_ecom_product_edit.html">PID.424</a>
+                                            <a class="font-w600" href="#">{{ $ord->id }}</a>
                                         </td>
                                         <td class="d-none d-sm-table-cell">
-                                            <span class="badge badge-success">Available</span>
+                                            <span class="badge badge-danger">Not Paid</span>
                                         </td>
                                         <td class="d-none d-sm-table-cell">
-                                            2017/09/27                        </td>
+                                            @php $date = explode(" ", $ord->created_at) @endphp  {{ $date[0] }}                     </td>
                                         <td>
-                                            <a href="be_pages_ecom_product_edit.html">Product #24</a>
+                                            {{ $ord->imagename }}
                                         </td>
                                         <td class="d-none d-md-table-cell">
-                                            <a href="be_pages_ecom_products.html">Kids</a>
+
+                                                @if(array_key_exists($ord->image_id, $album_id))
+                                                    @foreach($albums as $alb)
+                                                        @if($alb->id==$album_id[$ord->image_id])
+                                                        <a href="/archive/{{ $alb->id }}/thumbnail"> {{ $alb->names }} </a>
+                                                           @break;
+                                                        @endif
+                                                    @endforeach
+                                                 @endif
+
                                         </td>
                                         <td class="text-right">
-                                            <span class="text-black">$98</span>
+                                            <span class="text-black">{{ $ord->amount }}</span>
                                         </td>
                                     </tr>
-                                    <tr>
-                                        <td>
-                                            <a class="font-w600" href="be_pages_ecom_product_edit.html">PID.423</a>
-                                        </td>
-                                        <td class="d-none d-sm-table-cell">
-                                            <span class="badge badge-danger">Out of Stock</span>
-                                        </td>
-                                        <td class="d-none d-sm-table-cell">
-                                            2017/09/26                        </td>
-                                        <td>
-                                            <a href="be_pages_ecom_product_edit.html">Product #23</a>
-                                        </td>
-                                        <td class="d-none d-md-table-cell">
-                                            <a href="be_pages_ecom_products.html">House</a>
-                                        </td>
-                                        <td class="text-right">
-                                            <span class="text-black">$66</span>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <a class="font-w600" href="be_pages_ecom_product_edit.html">PID.422</a>
-                                        </td>
-                                        <td class="d-none d-sm-table-cell">
-                                            <span class="badge badge-danger">Out of Stock</span>
-                                        </td>
-                                        <td class="d-none d-sm-table-cell">
-                                            2017/09/25                        </td>
-                                        <td>
-                                            <a href="be_pages_ecom_product_edit.html">Product #22</a>
-                                        </td>
-                                        <td class="d-none d-md-table-cell">
-                                            <a href="be_pages_ecom_products.html">Electronics</a>
-                                        </td>
-                                        <td class="text-right">
-                                            <span class="text-black">$23</span>
-                                        </td>
-                                    </tr>
+                                @endforeach
+
                                 </tbody>
                             </table>
                             <!-- END Products Table -->

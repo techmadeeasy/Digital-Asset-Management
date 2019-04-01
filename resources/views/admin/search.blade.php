@@ -58,7 +58,7 @@
                                     <tr>
                                         <th class="text-center" scope="row">3</th>
                                         <td><img  src="https://dkmzc8tghb19s.cloudfront.net/fit-in/600x600/uploads/{{ $alb[0]}}" alt="placeholder" class="img-fluid" style="width:100%;max-width:100px"></td>
-                                         <td class="d-none d-sm-table-cell">{{ $alb[1]}}</td>
+                                         <td class="d-none d-sm-table-cell">@php $nsm = explode("_", $alb[1]); echo $nsm[0]; @endphp</td>
                                         <td  class="d-none d-sm-table-cell">
                                           {{$alb[2]}}
                                         </td>
