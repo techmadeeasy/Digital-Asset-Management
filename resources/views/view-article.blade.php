@@ -18,7 +18,7 @@
                 <div class="col-md-4">  
                
                            
-                    <img  src="https://dkmzc8tghb19s.cloudfront.net/fit-in/600x600/uploads/{{ $imf->thumbnail}}" alt="placeholder" class="img-fluid">
+                    <img  src="/uploads/{{ $imf->thumbnail}}" alt="placeholder" class="img-fluid">
                     @endforeach
 
                     
@@ -27,7 +27,7 @@
 
 <!-- Trigger the Modal -->
 @foreach($images as $img)
-<img id="{{ ++$count}}" onclick="showModel({{$count}})" src="https://dkmzc8tghb19s.cloudfront.net/fit-in/600x600/uploads/{{ $img->thumbnail}}" alt="Preview" style="width:100%;max-width:100px">
+<img id="{{ ++$count}}" onclick="showModel({{$count}})" src="/uploads/{{ $img->thumbnail}}" alt="Preview" style="width:100%;max-width:100px">
 @endforeach
 <!-- The Modal -->
 <div id="myModal" class="modal">
