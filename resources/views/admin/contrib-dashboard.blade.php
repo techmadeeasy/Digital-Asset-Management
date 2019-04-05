@@ -233,9 +233,9 @@
                                     <tr>
                                         <th style="width: 100px;">ID</th>
                                         <th style="width: 120px;">Status</th>
-                                        <th class="d-none d-sm-table-cell" style="width: 120px;">Submitted</th>
-                                        <th class="d-none d-sm-table-cell">Customer</th>
-                                        <th class="text-right">Value</th>
+                                        <th class="d-none d-sm-table-cell" style="width: 120px;">Sold</th>
+                                        <th class="d-none d-sm-table-cell">Image</th>
+                                        <th class="text-right">Price</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -244,7 +244,7 @@
                                             <a class="font-w600" href="be_pages_ecom_order.html">ORD.532</a>
                                         </td>
                                         <td>
-                                            <span class="badge badge-success">Completed</span>
+                                            <span class="badge badge-success">Paid</span>
                                         </td>
                                         <td class="d-none d-sm-table-cell">
                                             2017/10/27                        </td>
@@ -260,7 +260,7 @@
                                             <a class="font-w600" href="be_pages_ecom_order.html">ORD.291</a>
                                         </td>
                                         <td>
-                                            <span class="badge badge-success">Completed</span>
+                                            <span class="badge badge-success">Paid</span>
                                         </td>
                                         <td class="d-none d-sm-table-cell">
                                             2017/10/26                        </td>
@@ -276,7 +276,7 @@
                                             <a class="font-w600" href="be_pages_ecom_order.html">ORD.462</a>
                                         </td>
                                         <td>
-                                            <span class="badge badge-success">Completed</span>
+                                            <span class="badge badge-success">Paid</span>
                                         </td>
                                         <td class="d-none d-sm-table-cell">
                                             2017/10/25                        </td>
@@ -292,7 +292,7 @@
                                             <a class="font-w600" href="be_pages_ecom_order.html">ORD.536</a>
                                         </td>
                                         <td>
-                                            <span class="badge badge-success">Completed</span>
+                                            <span class="badge badge-success">Paid</span>
                                         </td>
                                         <td class="d-none d-sm-table-cell">
                                             2017/10/24                        </td>
@@ -308,7 +308,7 @@
                                             <a class="font-w600" href="be_pages_ecom_order.html">ORD.988</a>
                                         </td>
                                         <td>
-                                            <span class="badge badge-success">Completed</span>
+                                            <span class="badge badge-success">Paid</span>
                                         </td>
                                         <td class="d-none d-sm-table-cell">
                                             2017/10/23                        </td>
@@ -334,12 +334,18 @@
                                 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                                     <span aria-hidden="true">×</span>
                                 </button>
-                                <p class="mb-0"><i class="fa fa-info-circle mr-5"></i> This note is only for internal use and will not be displayed to the customer.</p>
+                                <p class="mb-0"><i class="fa fa-info-circle mr-5"></i> Upload sales reports  view commssion due to contributors</p>
                             </div>
-                            <form action="be_pages_ecom_customer.html" method="post" onsubmit="return false;">
+                            <form action="{{ route('submit-csv') }}" method="post" enctype="multipart/form-data">
+                                {{csrf_field()}}
                                 <div class="form-group row mb-10">
                                     <div class="col-12">
-                                        <textarea class="form-control" id="ecom-customer-note" name="ecom-customer-note" placeholder="Add a private note.." rows="4"></textarea>
+                                        <input class="form-control"  type="file"  name="csvfile" >
+                                        @if($errors->any())
+                                            @foreach($errors->all() as $error)
+                                                <span class="alert alert-danger">{{ $error }}</span>
+                                            @endforeach
+                                        @endif
                                     </div>
                                 </div>
                                 <div class="form-group">
@@ -350,5 +356,6 @@
                     </div>
                     <!-- END Private Notes -->
                 </div>
+
 @endif
 @endsection

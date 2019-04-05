@@ -77,6 +77,6 @@ Route::get('/contributors', 'ContributorsController@listAll');
 Route::post('/upload-contract', 'ContributorsController@uploadContract');
 
 //route for csv and billing
+Route::post('/submit-csv', 'OrderController@submitCsv')->name("submit-csv");
 
-Route::get('/upload-csv', 'OrderController@index');
-Route::post('/submit-csv', 'OrderController@submitCsv');
+Route::get("/resize", 'UploadController@resize');

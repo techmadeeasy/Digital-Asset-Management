@@ -10,7 +10,7 @@ use Pion\Laravel\ChunkUpload\Handler\HandlerFactory;
 use Pion\Laravel\ChunkUpload\Receiver\FileReceiver;
 use Illuminate\Support\Facades\Session;
 use App\Image;
-
+use Intervention\Image\ImageManagerStatic as Imageresize;
 ini_set('max_execution_time', 600); //300 seconds = 5 minutes
 
 class UploadController extends Controller
@@ -69,8 +69,16 @@ class UploadController extends Controller
         $fileName = $this->createFilename($file);
 
         $disk = Storage::disk('s3');
+        $local = Storage::disk("local");
         // It's better to use streaming Streaming (laravel 5.4+)
-        $disk->putFileAs("uploads/" . date('Y-m-d'), $file, $fileName);
+        $local->putFileAs("uploads/" . date('Y-m-d'), $file, $fileName);
+
+
+
+
+
+
+
 
         // for older laravel
        //$disk->put($fileName, file_get_contents($file), 'public');
@@ -79,7 +87,7 @@ class UploadController extends Controller
 
 
         // We need to delete the file when uploaded to s3
-        unlink($file->getPathname());
+      //  unlink($file->getPathname());
 
         return response()->json([
             'path' => $disk->url($fileName),
@@ -144,6 +152,40 @@ class UploadController extends Controller
         // and then unset the session specific stored data
 
         return $filename;
+    }
+
+    public function resize(){
+//        $directories = Storage::allFiles("public/uploads/2019-04-05");
+//        foreach ($directories as $file){
+//            echo $file;
+//        }
+        $file = Storage::disk("local")->get('uploads/2019-04-05/tet.jpg'); //This is the original file
+        list($width, $height) = Storage::disk("local")->size('uploads/2019-04-05/tet.jpg');
+        $save =  public_path("uploads/2019-04-05/new.jpg"); //This is the new file you saving
+        $width = Imageresize::make($file)->width();
+        $height = Imageresize::make($file)->height();
+        $modwidth = 600;
+        $diff = $width / $modwidth;
+        $modheight = $height / $diff;
+       $Path =  public_path(url($file));
+       $save = Imageresize::make($file)->resize(600)->save(public_path("uploads/2019-04-05/tet.jpg"));
+
+        exit;
+        $img = Imageresize::make(public_path($contents))->resize(320, 240)->save(base64_decode("uploads/2019-04-05/new.jpg"));
+
+
+        exit;
+
+        $img = Imageresize::make($contents);
+
+// now you are able to resize the instance
+        $img->resize(320, 240);
+        $path = public_path("uploads/2019-04-05/tet.jpg");
+// and insert a watermark for example
+   //     $img->insert('public/watermark.png');
+
+// finally we save the image as a new file
+        $img->save($path);
     }
 
 }

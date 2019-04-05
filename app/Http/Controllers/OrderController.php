@@ -7,24 +7,24 @@ use App\Image;
 
 class OrderController extends Controller
 {
-    public function index(){
-        return view("admin.upload-csv");
-    }
     public function submitCsv(Request $request)
     {
-        $validate = $request->validate([
-            "csv-file" => "required|mimes:csv,txt, xlsx",
-        ]);
-
-        $upload = $request->file('csv-file');
+//        $validate = $request->validate([
+//            "salesreport" => "required|mimes:csv,txt, xlsx",
+//        ]);
+        $upload = $request->file("csvfile");
         $filePath = $upload->getrealpath();
-        $file = fopen("$upload", "r");
+        $file = fopen($upload, "r");
+        $csvfile =fgetcsv($file);
+        $colum_header = array_slice($csvfile, 1);
+        //return $colum_header;
         $images = new Image;
-        while ($column = $filecontent = fgetcsv($file)) {
-
+        while ($column =$csvfile) {
             foreach ($column as $item => $value) {
                 $rray[$item] = $value;
+                print_r($value);
             }
+
         }
     }
 }

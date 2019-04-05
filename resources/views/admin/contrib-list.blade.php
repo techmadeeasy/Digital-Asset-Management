@@ -52,6 +52,9 @@
                     </div>
                             </div>
                     <style>
+                        .pagination li a{
+                            padding: 0px 5px 0px 5px;
+                        }
                     @media (min-width: 1200px){
                     #page-container.main-content-narrow>#main-container .content, #page-container.main-content-narrow>#page-footer .content, #page-container.main-content-narrow>#page-header .content, #page-container.main-content-narrow>#page-header .content-header{
                         max-width:65%;
