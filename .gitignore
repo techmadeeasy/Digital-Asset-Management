@@ -13,4 +13,4 @@ Homestead.yaml
 /public/*.js
 /public/*.json
 /public/*.zip
-
+/public/uploads
